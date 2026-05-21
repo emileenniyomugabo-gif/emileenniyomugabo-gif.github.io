@@ -86,3 +86,81 @@ footer {
     color: #555;
     font-size: 14px;
 }
+.skills-grid {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.skills-grid h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #1f4e79; /* your main blue */
+    letter-spacing: 0.6px;
+    font-weight: 700;
+}
+
+/* GRID LAYOUT */
+.skills-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* SKILL CARD BASE */
+.skill-card {
+    background: linear-gradient(135deg, #f5f8fc, #eef3f9); /* soft gradient */
+    padding: 18px 22px;
+    border-radius: 14px;
+    border: 1.2px solid #c7d4e4; /* subtle outer border */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2b2b2b;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+    backdrop-filter: blur(3px); /* soft glassy tech */
+}
+
+/* INNER BORDER (sleek + techy) */
+.skill-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    pointer-events: none;
+}
+
+/* HOVER EFFECT — bold + techy + personality */
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #3a7abf; /* your new accent blue */
+    box-shadow: 0 8px 22px rgba(58, 122, 191, 0.28); /* blue glow */
+    background: #ffffff;
+}
+
+/* MICRO-ANIMATION — subtle shimmer */
+.skill-card:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.4) 50%,
+        transparent 100%
+    );
+    animation: shimmer 0.9s ease;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    from { left: -100%; }
+    to { left: 100%; }
+}
