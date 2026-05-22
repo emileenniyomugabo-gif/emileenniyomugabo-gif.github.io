@@ -180,15 +180,6 @@ footer {
     text-align: center;
 }
 
-.about-section h2 {
-    font-size: 2rem;
-    color: #1f4e79;
-    border: none;
-    padding: 0;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
 .about-section p {
     font-size: 1.1rem;
     line-height: 1.7;
