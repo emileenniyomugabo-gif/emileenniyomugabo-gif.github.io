@@ -31,14 +31,6 @@ header p {
     padding: 0 20px;
 }
 
-h2 {
-    color: #1f4e79;
-    border-left: 4px solid #1f4e79;
-    padding-left: 10px;
-    font-size: 26px;
-    margin-bottom: 15px;
-}
-
 .card {
     background: white;
     padding: 25px;
@@ -181,3 +173,25 @@ footer {
     box-shadow: 0 8px 22px rgba(58, 122, 191, 0.18);
 }
 
+.about-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: #1f4e79;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 18px;
+}
