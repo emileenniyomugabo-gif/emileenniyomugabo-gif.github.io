@@ -164,3 +164,20 @@ footer {
     from { left: -100%; }
     to { left: 100%; }
 }
+
+.about-card {
+    background: linear-gradient(135deg, #ffffff, #f5f8fc);
+    border-radius: 14px;
+    padding: 30px;
+    border: 1.2px solid #c7d4e4;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    backdrop-filter: blur(3px);
+    transition: 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-3px);
+    border-color: #3a7abf;
+    box-shadow: 0 8px 22px rgba(58, 122, 191, 0.18);
+}
+
