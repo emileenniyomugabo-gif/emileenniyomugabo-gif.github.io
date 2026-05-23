@@ -194,3 +194,34 @@ footer {
     letter-spacing: 0.6px;
     font-weight: 700;
 }
+
+.contact-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #1f4e79;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-section a {
+    color: #1f4e79;
+    font-weight: 600;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
