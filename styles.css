@@ -348,7 +348,7 @@ pre {
     }
 
     .contact-card {
-        max-width: 300px;
+        max-width: 360px; /* FIXED — allows long email to fit */
         flex-direction: column;
         text-align: center;
         gap: 14px;
@@ -359,6 +359,7 @@ pre {
         text-align: center;
     }
 }
+
 
 /* ----------------------------------------------------
    FOOTER
