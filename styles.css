@@ -304,3 +304,102 @@ pre {
 .copy-btn:hover {
     background-color: #163a5c;
 }
+
+/* Contact Section */
+.contact-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 35px;
+    color: #1f4e79;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+}
+
+/* Layout */
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+
+/* Contact Card */
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(135deg, #f5f8fc, #eef3f9);
+    padding: 18px 25px;
+    border-radius: 14px;
+    border: 1.2px solid #c7d4e4;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    width: 100%;
+    max-width: 500px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Glow */
+.contact-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #3a7abf;
+    box-shadow: 0 8px 22px rgba(58, 122, 191, 0.28);
+    background: #ffffff;
+}
+
+/* Shimmer */
+.contact-card:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.4) 50%,
+        transparent 100%
+    );
+    animation: shimmer 0.9s ease;
+}
+
+@keyframes shimmer {
+    from { left: -100%; }
+    to { left: 100%; }
+}
+
+/* Icon Circle */
+.contact-icon-box {
+    width: 52px;
+    height: 52px;
+    background-color: #1f4e79;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Text */
+.contact-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1f4e79;
+    font-weight: 700;
+}
+
+.contact-info p {
+    margin: 3px 0 0;
+    font-size: 1rem;
+    color: #333;
+}
