@@ -332,6 +332,13 @@ pre {
     color: #333;
 }
 
+.contact-icon-box svg {
+    width: 85%;
+    height: 85%;
+    display: block;
+}
+
+
 /* ----------------------------------------------------
    RESPONSIVE — SIDE-BY-SIDE ON DESKTOP
 ---------------------------------------------------- */
