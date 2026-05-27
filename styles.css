@@ -306,8 +306,8 @@ pre {
 
 /* Normalize all SVGs */
 .contact-icon-box svg {
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 85%;
     display: block;
 }
 
@@ -331,13 +331,6 @@ pre {
     font-size: 1rem;
     color: #333;
 }
-
-.contact-icon-box svg {
-    width: 85%;
-    height: 85%;
-    display: block;
-}
-
 
 /* ----------------------------------------------------
    RESPONSIVE — SIDE-BY-SIDE ON DESKTOP
