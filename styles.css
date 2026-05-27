@@ -238,6 +238,9 @@ pre {
     /* fade-in start */
     opacity: 0;
     transform: translateY(20px);
+
+    /* FIX: make all three cards the same height */
+    min-height: 120px;
 }
 
 /* Fade-in animation */
@@ -330,7 +333,9 @@ pre {
     margin: 4px 0 0;
     font-size: 1rem;
     color: #333;
+    white-space: nowrap; /* prevents wrapping */
 }
+
 
 /* ----------------------------------------------------
    RESPONSIVE — SIDE-BY-SIDE ON DESKTOP
