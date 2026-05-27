@@ -190,9 +190,8 @@ pre {
 }
 
 /* ----------------------------------------------------
-   CONTACT SECTION (FINAL VERSION)
+   CONTACT SECTION — FINAL POLISHED VERSION
 ---------------------------------------------------- */
-/* Contact Section */
 .contact-section {
     max-width: 900px;
     margin: 60px auto;
@@ -221,7 +220,7 @@ pre {
 .contact-card {
     display: flex;
     align-items: center;
-    justify-content: center; /* CENTER EVERYTHING */
+    justify-content: center; /* centers icon + text */
     gap: 22px;
     background: linear-gradient(135deg, #f5f8fc, #eef3f9);
     padding: 24px 30px;
@@ -235,6 +234,8 @@ pre {
     transition: 0.3s ease;
     position: relative;
     overflow: hidden;
+
+    /* fade-in start */
     opacity: 0;
     transform: translateY(20px);
 }
@@ -270,6 +271,25 @@ pre {
     animation: shimmer 0.9s ease;
 }
 
+/* Ripple click effect */
+.contact-card:active::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(58, 122, 191, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.4s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
 /* Icon Circle */
 .contact-icon-box {
     width: 60px;
@@ -279,10 +299,12 @@ pre {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px; /* FIXES SVG CENTERING */
+
+    /* fixes SVG alignment */
+    padding: 8px;
 }
 
-/* Force all SVGs to behave the same */
+/* Normalize all SVGs */
 .contact-icon-box svg {
     width: 100%;
     height: 100%;
@@ -294,7 +316,7 @@ pre {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left; /* matches LinkedIn format */
+    text-align: left;
 }
 
 .contact-info h3 {
@@ -310,6 +332,28 @@ pre {
     color: #333;
 }
 
+/* ----------------------------------------------------
+   RESPONSIVE — SIDE-BY-SIDE ON DESKTOP
+---------------------------------------------------- */
+@media (min-width: 850px) {
+    .contact-methods {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .contact-card {
+        max-width: 300px;
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+        padding: 28px 20px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+}
 
 /* ----------------------------------------------------
    FOOTER
