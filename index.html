@@ -101,6 +101,17 @@
     <p>© 2026 Emileen Niyomugabo — IT Support Portfolio</p>
 </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".contact-card");
+    cards.forEach((card, i) => {
+        setTimeout(() => {
+            card.classList.add("fade-in");
+        }, i * 150);
+    });
+});
+</script>
 
+       
 </body>
 </html>
