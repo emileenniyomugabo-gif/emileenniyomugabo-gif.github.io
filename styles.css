@@ -1,32 +1,102 @@
 /* ----------------------------------------------------
-   GLOBAL STYLES
+   GLOBAL STYLES + FLOATING BACKGROUND
 ---------------------------------------------------- */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f5f7fa;
+    background: linear-gradient(135deg, #f5f7fa, #eef3f9);
+    background-size: 200% 200%;
+    animation: bgFloat 12s ease infinite;
     color: #333;
 }
 
+@keyframes bgFloat {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* ----------------------------------------------------
+   HEADER + HEADER ANIMATION
+---------------------------------------------------- */
 header {
     background-color: #1f4e79;
     color: white;
     padding: 40px 20px;
     text-align: center;
+
+    opacity: 0;
+    animation: headerFade 1.2s ease forwards;
 }
 
 header h1 {
     margin: 0;
     font-size: 42px;
     font-weight: 600;
+    animation: headerTitleGlow 2.5s ease-in-out infinite;
 }
 
 header p {
     margin-top: 10px;
     font-size: 18px;
     opacity: 0.9;
+    animation: headerSubtitleFade 1.6s ease forwards;
+    animation-delay: 0.4s;
 }
 
+@keyframes headerFade {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes headerTitleGlow {
+    0% { text-shadow: 0 0 6px rgba(255,255,255,0.3); }
+    50% { text-shadow: 0 0 12px rgba(255,255,255,0.6); }
+    100% { text-shadow: 0 0 6px rgba(255,255,255,0.3); }
+}
+
+@keyframes headerSubtitleFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------------------------------------------
+   SECTION TITLES — GLOW + FADE + UNDERLINE
+---------------------------------------------------- */
+section h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 6px;
+    opacity: 0;
+    animation: titleFade 1s ease forwards;
+}
+
+@keyframes titleFade {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #1f4e79, #3a7abf);
+    border-radius: 2px;
+    animation: underlineGlow 2s ease-in-out infinite;
+}
+
+@keyframes underlineGlow {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+/* ----------------------------------------------------
+   LAYOUT ELEMENTS
+---------------------------------------------------- */
 .container {
     max-width: 900px;
     margin: 40px auto;
@@ -111,6 +181,13 @@ pre {
     backdrop-filter: blur(3px);
 }
 
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #3a7abf;
+    box-shadow: 0 8px 22px rgba(58, 122, 191, 0.28);
+    background: #ffffff;
+}
+
 .skill-card::before {
     content: "";
     position: absolute;
@@ -118,13 +195,6 @@ pre {
     border-radius: 14px;
     border: 1px solid rgba(255,255,255,0.4);
     pointer-events: none;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: #3a7abf;
-    box-shadow: 0 8px 22px rgba(58, 122, 191, 0.28);
-    background: #ffffff;
 }
 
 .skill-card:hover::after {
@@ -189,150 +259,140 @@ pre {
     box-shadow: 0 8px 22px rgba(58, 122, 191, 0.18);
 }
 
-/*------------------------------------------------------
-   CONTACT SECTION - ANIMATED PREMIUM VERSION
--------------------------------------------------------*/
-
-/* CONTACT ROW - staggered fade-in */
+/* ----------------------------------------------------
+   CONTACT SECTION — PREMIUM ANIMATED VERSION
+---------------------------------------------------- */
 .contact-row {
-   display: flex;
-   justify-content: center;
-   gap: 40px;
-   flex-wrap: wrap;
-   margin-top: 40px;
-   opacity: 0;
-   animation: fadeInRow 1s ease forwards;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeInRow 1s ease forwards;
 }
 
-/* CONTACT ITEM CARD */
 .contact-item {
-   background: linear-gradient(135deg, #f7faff, #eef3f9);
-   border: 1.5px solid rgba(58, 122, 191, 0.25);
-   border-radius: 16px;
-   padding: 28px 32px;
-   width: 280px;
-   text-align: center;
-   text-decoration: none;
-   color: #333;
-   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-   transition: 0.35s ease;
-   position: relative;
-   overflow: hidden;
-   opacity: 0;
-   animation: fadeInCard 1s ease forwards;
+    background: linear-gradient(135deg, #f7faff, #eef3f9);
+    border: 1.5px solid rgba(58, 122, 191, 0.25);
+    border-radius: 16px;
+    padding: 28px 32px;
+    width: 280px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInCard 1s ease forwards;
 }
 
-/* STAGGERED ANIMATION DELAYS */
-.contact-item:nth-child(1) {animation-delay: 0.3s; }
-.contact-item:nth-child(2) {animation-delay: 0.5s; }
-.contact-item:nth-child(3) {animation-delay: 0.7s; }
+.contact-item:nth-child(1) { animation-delay: 0.3s; }
+.contact-item:nth-child(2) { animation-delay: 0.5s; }
+.contact-item:nth-child(3) { animation-delay: 0.7s; }
 
-/* GLOWING BORDER EFFECT */
 .contact-item::before {
-   content: "";
-   position: absolute;
-   inset: 0;
-   border-radius: 16px;
-   border: 1.5px solid rgba(255,255,255,0.5);
-   pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    pointer-events: none;
 }
 
-/* HOVER ANIMATION - lift + glow */
 .contact-item:hover {
-   transform: translateY(-6px) scale(1.03);
-   border-color: #3a7abf;
-   box-shadow: 0 12px 32px rgba(58,122,191,0.32);
-   background: #ffffff;
+    transform: translateY(-6px) scale(1.03);
+    border-color: #3a7abf;
+    box-shadow: 0 12px 32px rgba(58,122,191,0.32);
+    background: #ffffff;
 }
 
-/* SHIMMER ON HOVER */
 .contact-item:hover::after {
-   content: "";
-   position: absolute;
-   top: 0;
-   left: -120%;
-   width: 240%;
-   height: 100%;
-   background: linear-gradient(
-      120deg,
-      transparent 0%,
-      rgba(255,255,255,0.45) 50%,
-      transparent 100%
-   );
-   animation: shimmer 1s ease;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 240%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.45) 50%,
+        transparent 100%
+    );
+    animation: shimmer 1s ease;
 }
 
-/* ICON CIRCLE */
 .contact-icon {
-   width: 75px;
-   height: 75px;
-   background: linear-gradient(135deg, #1f4e79, #3a7abf);
-   border-radius: 50%;
-   display: flex;
-   align-items: center;
-   justify-items: center;
-   margin: 0 auto 14px auto;
-   box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35);
-   transition: 0.3s ease;
-   animation: pulseGlow 3s infinite ease-in-out;
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, #1f4e79, #3a7abf);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px auto;
+    box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35);
+    transition: 0.3s ease;
+    animation: pulseGlow 3s infinite ease-in-out;
 }
 
-/* ICON SCALE ON HOVER */
 .contact-item:hover .contact-icon {
-   transform: scale(1.12);
+    transform: scale(1.12);
 }
 
-/* SVG ICONS */
 .contact-icon svg {
-   width: 70%;
-   height: 70%;
+    width: 70%;
+    height: 70%;
 }
 
-/* TEXT */
 .contact-item h3 {
-   margin: 8px 0 6px;
-   font-size: 1.2rem;
-   color: #1f4e79;
-   font-weight: 700:
+    margin: 8px 0 6px;
+    font-size: 1.2rem;
+    color: #1f4e79;
+    font-weight: 700;
 }
 
 .contact-item p {
-   font-size: 0.95rem;
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/*---------------------------------------------------
-   ANIMATIONS
-------------------------------------------------- */
-
-/* Fade-in for entire row */
 @keyframes fadeInRow {
-   from { opacity: 0; transform: translateY(20px); }
-   to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Fade-in for each card */
 @keyframes fadeInCard {
-   from { opacity: 0; transform: translateY(25px); }
-   to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* SHIMMER effect */
-@keyframes shimmer {
-   from { left: -120%; }
-   to { left: 120% }
-}
-
-/* Soft pulsing glow */
 @keyframes pulseGlow {
-   0% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35) ; }
-   50% { box-shadow: 0 6px 18px rgba(31, 78, 121, 0.55); }
-   100% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
+    0% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
+    50% { box-shadow: 0 6px 18px rgba(31, 78, 121, 0.55); }
+    100% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
 }
 
-/*------------------------------------------------
+/* ----------------------------------------------------
+   SCROLL REVEAL
+---------------------------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----------------------------------------------------
    FOOTER
 ---------------------------------------------------- */
 .footer {
