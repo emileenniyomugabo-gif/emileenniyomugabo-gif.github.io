@@ -17,6 +17,27 @@ body {
 }
 
 /* ----------------------------------------------------
+   PAGE GLOW BORDER
+---------------------------------------------------- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    border: 3px solid rgba(31, 78, 121, 0.35);
+    border-radius: 12px;
+    pointer-events: none;
+    box-shadow: 0 0 25px rgba(31, 78, 121, 0.45);
+    animation: borderPulse 6s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+    0% { box-shadow: 0 0 18px rgba(31, 78, 121, 0.35); }
+    50% { box-shadow: 0 0 32px rgba(31, 78, 121, 0.55); }
+    100% { box-shadow: 0 0 18px rgba(31, 78, 121, 0.35); }
+}
+
+
+/* ----------------------------------------------------
    HEADER + HEADER ANIMATION
 ---------------------------------------------------- */
 header {
