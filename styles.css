@@ -192,154 +192,118 @@ pre {
 /* ----------------------------------------------------
    CONTACT SECTION — FINAL POLISHED VERSION
 ---------------------------------------------------- */
-.contact-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
+/* CONTACT ROW */
+.contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* CONTACT ITEM CARD */
+.contact-item {
+    background: linear-gradient(135deg, #f7faff, #eef3f9);
+    border: 1.5px solid rgba(58, 122, 191, 0.25);
+    border-radius: 16px;
+    padding: 28px 32px;
+    width: 280px;
     text-align: center;
-}
-
-.contact-section h2 {
-    font-size: 2rem;
-    margin-bottom: 35px;
-    color: #1f4e79;
-    letter-spacing: 0.6px;
-    font-weight: 700;
-}
-
-/* Layout */
-.contact-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
-    width: 100%;
-}
-
-/* Contact Card */
-.contact-card {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* centers icon + text */
-    gap: 22px;
-    background: linear-gradient(135deg, #f5f8fc, #eef3f9);
-    padding: 24px 30px;
-    border-radius: 14px;
-    border: 1.2px solid #c7d4e4;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    width: 100%;
-    max-width: 520px;
     text-decoration: none;
     color: #333;
-    transition: 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    transition: 0.35s ease;
     position: relative;
     overflow: hidden;
-
-    /* fade-in start */
-    opacity: 0;
-    transform: translateY(20px);
-
-    /* FIX: make all three cards the same height */
-    min-height: 120px;
 }
 
-/* Fade-in animation */
-.contact-card.fade-in {
-    opacity: 1;
-    transform: translateY(0);
+/* GLOWING BORDER EFFECT */
+.contact-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    pointer-events: none;
 }
 
-/* Hover Glow */
-.contact-card:hover {
-    transform: translateY(-5px) scale(1.02);
+/* HOVER ANIMATION */
+.contact-item:hover {
+    transform: translateY(-6px) scale(1.02);
     border-color: #3a7abf;
-    box-shadow: 0 8px 22px rgba(58, 122, 191, 0.28);
+    box-shadow: 0 10px 28px rgba(58,122,191,0.28);
     background: #ffffff;
 }
 
-/* Shimmer */
-.contact-card:hover::after {
+/* SHIMMER ON HOVER */
+.contact-item:hover::after {
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 200%;
+    left: -120%;
+    width: 240%;
     height: 100%;
     background: linear-gradient(
         120deg,
         transparent 0%,
-        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0.45) 50%,
         transparent 100%
     );
-    animation: shimmer 0.9s ease;
+    animation: shimmer 1s ease;
 }
 
-/* Ripple click effect */
-.contact-card:active::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: rgba(58, 122, 191, 0.15);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    animation: ripple 0.4s ease-out;
-}
-
-@keyframes ripple {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0;
-    }
-}
-
-/* Icon Circle */
-.contact-icon-box {
-    width: 60px;
-    height: 60px;
-    background-color: #1f4e79;
+/* ICON CIRCLE */
+.contact-icon {
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, #1f4e79, #3a7abf);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* fixes SVG alignment */
-    padding: 8px;
+    margin: 0 auto 14px auto;
+    box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35);
+    transition: 0.3s ease;
 }
 
-/* Normalize all SVGs */
-.contact-icon-box svg {
-    width: 85%;
-    height: 85%;
-    display: block;
+/* ICON SCALE ON HOVER */
+.contact-item:hover .contact-icon {
+    transform: scale(1.08);
 }
 
-/* Text */
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
+/* SVG ICONS */
+.contact-icon svg {
+    width: 70%;
+    height: 70%;
 }
 
-.contact-info h3 {
-    margin: 0;
-    font-size: 1.25rem;
+/* TEXT */
+.contact-item h3 {
+    margin: 8px 0 6px;
+    font-size: 1.2rem;
     color: #1f4e79;
     font-weight: 700;
 }
 
-.contact-info p {
-    margin: 4px 0 0;
-    font-size: 1rem;
-    color: #333;
-    white-space: nowrap; /* prevents wrapping */
+.contact-item p {
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* ANIMATIONS */
+@keyframes fadeIn {
+   from { opacity: 0; transform: translateY(20px); }
+   to { opacity: 1; transform: translateY(0); }
+}
 
-
-
-
+@keyframes shimmer {
+   from { left: -120%; }
+   to {left: 120%; }
+} 
 
 
 /* ----------------------------------------------------
