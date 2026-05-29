@@ -1,19 +1,25 @@
 /* ----------------------------------------------------
-   GLOBAL STYLES + FLOATING BACKGROUND
+   GLOBAL STYLES + FLOATING BACKGROUND + PAGE LOAD FADE
 ---------------------------------------------------- */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
     background: linear-gradient(135deg, #f5f7fa, #eef3f9);
     background-size: 200% 200%;
-    animation: bgFloat 12s ease infinite;
+    animation: bgFloat 12s ease infinite, pageFade 1.2s ease forwards;
     color: #333;
+    opacity: 0;
 }
 
 @keyframes bgFloat {
     0% { background-position: 0% 0%; }
     50% { background-position: 100% 100%; }
     100% { background-position: 0% 0%; }
+}
+
+@keyframes pageFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* ----------------------------------------------------
@@ -36,6 +42,20 @@ body::before {
     100% { box-shadow: 0 0 18px rgba(31, 78, 121, 0.35); }
 }
 
+/* ----------------------------------------------------
+   CURSOR FOLLOW GLOW
+---------------------------------------------------- */
+#cursorGlow {
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    background: radial-gradient(circle, rgba(58,122,191,0.55), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: 0.08s ease-out;
+    z-index: 9999;
+}
 
 /* ----------------------------------------------------
    HEADER + HEADER ANIMATION
@@ -45,7 +65,6 @@ header {
     color: white;
     padding: 40px 20px;
     text-align: center;
-
     opacity: 0;
     animation: headerFade 1.2s ease forwards;
 }
@@ -82,7 +101,7 @@ header p {
 }
 
 /* ----------------------------------------------------
-   SECTION TITLES — GLOW + FADE + UNDERLINE
+   SECTION TITLES — GLOW + FADE + UNDERLINE + HOVER
 ---------------------------------------------------- */
 section h2 {
     position: relative;
@@ -90,6 +109,12 @@ section h2 {
     padding-bottom: 6px;
     opacity: 0;
     animation: titleFade 1s ease forwards;
+    transition: 0.3s ease;
+}
+
+section h2:hover {
+    transform: translateY(-3px);
+    text-shadow: 0 0 12px rgba(58,122,191,0.55);
 }
 
 @keyframes titleFade {
@@ -113,6 +138,25 @@ section h2::after {
     0% { opacity: 0.4; }
     50% { opacity: 1; }
     100% { opacity: 0.4; }
+}
+
+/* ----------------------------------------------------
+   SECTION DIVIDERS
+---------------------------------------------------- */
+.section-divider {
+    width: 80%;
+    height: 3px;
+    margin: 50px auto;
+    background: linear-gradient(90deg, #1f4e79, #3a7abf, #1f4e79);
+    background-size: 200% 100%;
+    animation: dividerGlow 4s ease infinite;
+    border-radius: 2px;
+}
+
+@keyframes dividerGlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
 }
 
 /* ----------------------------------------------------
@@ -164,21 +208,12 @@ pre {
 }
 
 /* ----------------------------------------------------
-   SKILLS SECTION
+   SKILLS SECTION + INDIVIDUAL CARD REVEAL
 ---------------------------------------------------- */
 .skills-grid {
     margin: 40px auto;
     max-width: 900px;
     padding: 20px;
-}
-
-.skills-grid h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    text-align: center;
-    color: #1f4e79;
-    letter-spacing: 0.6px;
-    font-weight: 700;
 }
 
 .skills-grid .grid {
@@ -200,6 +235,14 @@ pre {
     overflow: hidden;
     transition: 0.3s ease;
     backdrop-filter: blur(3px);
+
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.skill-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .skill-card:hover {
@@ -247,21 +290,6 @@ pre {
     margin: 60px auto;
     padding: 0 20px;
     text-align: center;
-}
-
-.about-section h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: #1f4e79;
-    letter-spacing: 0.6px;
-    font-weight: 700;
-}
-
-.about-section p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: 18px;
 }
 
 .about-card {
@@ -314,36 +342,11 @@ pre {
 .contact-item:nth-child(2) { animation-delay: 0.5s; }
 .contact-item:nth-child(3) { animation-delay: 0.7s; }
 
-.contact-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    border: 1.5px solid rgba(255,255,255,0.5);
-    pointer-events: none;
-}
-
 .contact-item:hover {
     transform: translateY(-6px) scale(1.03);
     border-color: #3a7abf;
     box-shadow: 0 12px 32px rgba(58,122,191,0.32);
     background: #ffffff;
-}
-
-.contact-item:hover::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 240%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255,255,255,0.45) 50%,
-        transparent 100%
-    );
-    animation: shimmer 1s ease;
 }
 
 .contact-icon {
@@ -364,23 +367,10 @@ pre {
     transform: scale(1.12);
 }
 
-.contact-icon svg {
-    width: 70%;
-    height: 70%;
-}
-
-.contact-item h3 {
-    margin: 8px 0 6px;
-    font-size: 1.2rem;
-    color: #1f4e79;
-    font-weight: 700;
-}
-
-.contact-item p {
-    font-size: 0.95rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+@keyframes pulseGlow {
+    0% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
+    50% { box-shadow: 0 6px 18px rgba(31, 78, 121, 0.55); }
+    100% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
 }
 
 @keyframes fadeInRow {
@@ -391,12 +381,6 @@ pre {
 @keyframes fadeInCard {
     from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulseGlow {
-    0% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
-    50% { box-shadow: 0 6px 18px rgba(31, 78, 121, 0.55); }
-    100% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
 }
 
 /* ----------------------------------------------------
@@ -414,20 +398,32 @@ pre {
 }
 
 /* ----------------------------------------------------
-   INDIVIDUAL SKILL CARD REVEAL
+   BACK TO TOP BUTTON
 ---------------------------------------------------- */
-
-.skill-card {
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background: #1f4e79;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     opacity: 0;
-    transform: translateY(25px);
-    transition: 0.6s ease;
+    pointer-events: none;
+    transition: 0.3s ease;
 }
 
-.skill-card.visible {
+#backToTop.show {
     opacity: 1;
-    transform: translateY(0);
+    pointer-events: auto;
 }
-
 
 /* ----------------------------------------------------
    FOOTER
