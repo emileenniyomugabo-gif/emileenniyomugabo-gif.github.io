@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<div id="cursorGlow"></div>
-
-
 <body>
+
+<!-- CURSOR GLOW -->
+<div id="cursorGlow"></div>
 
 <header>
     <h1>Emileen Niyomugabo</h1>
@@ -153,6 +153,15 @@ window.addEventListener('scroll', () => {
 
 backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+<!-- CURSOR GLOW SCRIPT -->
+<script>
+document.addEventListener("mousemove", (e) => {
+    const glow = document.getElementById("cursorGlow");
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
 });
 </script>
 
