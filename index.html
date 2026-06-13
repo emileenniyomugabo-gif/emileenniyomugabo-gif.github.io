@@ -13,7 +13,7 @@
 
 <header>
     <h1>Emileen Niyomugabo</h1>
-    <p>IT Support • Troubleshooting • Technical Solutions</p>
+    <p id="typingText"></p>
 </header>
 
 <div class="section-divider"></div>
@@ -40,22 +40,24 @@
         <h2>Skills</h2>
 
         <div class="grid">
-            <div class="skill-card">Networking Hardware</div>
-            <div class="skill-card">Network Analysis</div>
-            <div class="skill-card">Computer Networking</div>
-            <div class="skill-card">Network Architecture</div>
-            <div class="skill-card">Network Models (OSI, TCP/IP)</div>
-            <div class="skill-card">Network Security</div>
-            <div class="skill-card">System Security</div>
-            <div class="skill-card">Cryptography (Basic)</div>
-            <div class="skill-card">Linux Administration</div>
-            <div class="skill-card">Computer Architecture</div>
-            <div class="skill-card">Cloud Computing</div>
-            <div class="skill-card">Security Software</div>
-            <div class="skill-card">Critical Thinking</div>
-            <div class="skill-card">Problem Solving</div>
-            <div class="skill-card">Communication</div>
-            <div class="skill-card">Collaboration</div>
+
+            <div class="skill-card"><span class="skill-icon">🖧</span> Networking Hardware</div>
+            <div class="skill-card"><span class="skill-icon">📊</span> Network Analysis</div>
+            <div class="skill-card"><span class="skill-icon">🌐</span> Computer Networking</div>
+            <div class="skill-card"><span class="skill-icon">🏗️</span> Network Architecture</div>
+            <div class="skill-card"><span class="skill-icon">🧩</span> Network Models (OSI, TCP/IP)</div>
+            <div class="skill-card"><span class="skill-icon">🔐</span> Network Security</div>
+            <div class="skill-card"><span class="skill-icon">🛡️</span> System Security</div>
+            <div class="skill-card"><span class="skill-icon">🔑</span> Cryptography (Basic)</div>
+            <div class="skill-card"><span class="skill-icon">🐧</span> Linux Administration</div>
+            <div class="skill-card"><span class="skill-icon">🧱</span> Computer Architecture</div>
+            <div class="skill-card"><span class="skill-icon">☁️</span> Cloud Computing</div>
+            <div class="skill-card"><span class="skill-icon">🛡️</span> Security Software</div>
+            <div class="skill-card"><span class="skill-icon">🧠</span> Critical Thinking</div>
+            <div class="skill-card"><span class="skill-icon">🛠️</span> Problem Solving</div>
+            <div class="skill-card"><span class="skill-icon">💬</span> Communication</div>
+            <div class="skill-card"><span class="skill-icon">🤝</span> Collaboration</div>
+
         </div>
     </section>
 
@@ -163,6 +165,24 @@ document.addEventListener("mousemove", (e) => {
     glow.style.left = e.clientX + "px";
     glow.style.top = e.clientY + "px";
 });
+</script>
+
+<!-- TYPING ANIMATION SCRIPT -->
+<script>
+const typingText = document.getElementById("typingText");
+const message = "IT Support • Troubleshooting • Technical Solutions";
+
+let index = 0;
+
+function typeEffect() {
+    if (index < message.length) {
+        typingText.textContent += message.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
+    }
+}
+
+window.addEventListener("load", typeEffect);
 </script>
 
 </body>
