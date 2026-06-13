@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Health Checker | Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="project-body">
+
+<!-- CURSOR GLOW (reuse) -->
+<div id="cursorGlow"></div>
+
+<header class="project-header">
+    <div class="project-header-inner">
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <h1>System Health Checker</h1>
+        <p class="project-subtitle">A Python-based diagnostics tool for CPU, RAM, disk usage, and system uptime.</p>
+
+        <div class="project-badges">
+            <span class="badge">Python</span>
+            <span class="badge">psutil</span>
+            <span class="badge">Automation</span>
+            <span class="badge">System Monitoring</span>
+        </div>
+    </div>
+</header>
+
+<div class="section-divider"></div>
+
+<main class="project-main container">
+
+    <!-- OVERVIEW -->
+    <section class="project-section reveal">
+        <h2>Overview</h2>
+        <p>
+            The System Health Checker is a command-line tool designed to help users and IT technicians quickly
+            understand the current state of a system. It collects CPU usage, RAM utilization, disk space, and uptime,
+            then presents the results in a clear, readable format.
+        </p>
+        <p>
+            This project reflects my focus on practical troubleshooting tools — the kind of utilities that make
+            diagnosing performance issues faster, more consistent, and less stressful.
+        </p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- FEATURES + TECH STACK -->
+    <section class="project-section project-layout reveal">
+        <div>
+            <h2>Key Features</h2>
+            <ul class="project-list">
+                <li>Real-time CPU usage reporting</li>
+                <li>RAM utilization and available memory</li>
+                <li>Disk usage per partition</li>
+                <li>System uptime calculation</li>
+                <li>Clean, readable CLI output</li>
+                <li>Error handling for missing permissions or modules</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Tech Stack</h2>
+            <ul class="project-list">
+                <li>Python 3</li>
+                <li><code>psutil</code> for system metrics</li>
+                <li>Standard library <code>platform</code> and <code>time</code></li>
+                <li>Runs on Windows and Linux</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- HOW IT WORKS + SAMPLE OUTPUT -->
+    <section class="project-section project-layout reveal">
+        <div>
+            <h2>How It Works</h2>
+            <p>
+                The tool gathers system metrics using <code>psutil</code> and other standard libraries, then formats
+                the results into a structured report. Each check is handled by a dedicated function, making the script
+                easy to extend and maintain.
+            </p>
+            <p class="terminal-diagram">
+                [ User ] → [ Python CLI ] → [ psutil / OS APIs ] → [ Formatted Report ]
+            </p>
+        </div>
+
+        <div>
+            <h2>Sample Output</h2>
+            <pre class="code-block">
+System Health Report
+--------------------
+CPU Usage: 14%
+RAM Usage: 52% (8.3 GB / 16 GB)
+Disk C: 71% used (356 GB / 500 GB)
+Uptime: 3 hours 42 minutes
+Status: System running within normal parameters.
+            </pre>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CODE SNIPPET -->
+    <section class="project-section reveal">
+        <h2>Code Snippet</h2>
+        <pre class="code-block"><code>
+import psutil
+import time
+
+def get_cpu_usage():
+    return psutil.cpu_percent(interval=1)
+
+def get_ram_usage():
+    mem = psutil.virtual_memory()
+    return mem.percent, mem.used, mem.total
+
+def get_uptime():
+    boot_time = psutil.boot_time()
+    seconds = time.time() - boot_time
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    return hours, minutes
+
+if __name__ == "__main__":
+    cpu = get_cpu_usage()
+    ram_percent, ram_used, ram_total = get_ram_usage()
+    hours, minutes = get_uptime()
+
+    print("System Health Report")
+    print("--------------------")
+    print(f"CPU Usage: {cpu}%")
+    print(f"RAM Usage: {ram_percent}%")
+    print(f"Uptime: {hours} hours {minutes} minutes")
+        </code></pre>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CHALLENGES / LEARNINGS -->
+    <section class="project-section project-layout reveal">
+        <div>
+            <h2>Challenges & Solutions</h2>
+            <ul class="project-list">
+                <li><strong>Cross-platform behavior:</strong> handled differences in disk naming and permissions.</li>
+                <li><strong>Accurate uptime:</strong> used <code>psutil.boot_time()</code> instead of manual tracking.</li>
+                <li><strong>Readable output:</strong> iterated on formatting to make the report easy to scan quickly.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>What I Learned</h2>
+            <ul class="project-list">
+                <li>How to use <code>psutil</code> effectively for system diagnostics.</li>
+                <li>How to structure a Python script for maintainability and clarity.</li>
+                <li>The importance of clear, user-friendly output in IT tools.</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ACTIONS -->
+    <section class="project-section project-actions reveal">
+        <a href="https://github.com/EmileenNiyomugabo-GIF/System-Health-Checker" target="_blank" class="project-btn">
+            View Code on GitHub
+        </a>
+        <a href="index.html" class="project-btn secondary">
+            ← Back to Portfolio
+        </a>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 Emileen Niyomugabo — System Health Checker Project</p>
+</footer>
+
+<!-- CURSOR GLOW SCRIPT (reuse) -->
+<script>
+document.addEventListener("mousemove", (e) => {
+    const glow = document.getElementById("cursorGlow");
+    if (!glow) return;
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
+</script>
+
+<!-- SCROLL REVEAL (reuse) -->
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+    for (let r of reveals) {
+        const rect = r.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            r.classList.add('visible');
+        }
+    }
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+</html>
