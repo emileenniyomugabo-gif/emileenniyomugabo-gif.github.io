@@ -202,9 +202,9 @@ section h2::after {
 }
 
 /* ----------------------------------------------------
-   UNIVERSAL CARD STYLE
+   UNIVERSAL CARD STYLE (REPLACES composes:)
 ---------------------------------------------------- */
-.card {
+.card-base {
     background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
     border-radius: var(--radius);
     border: 1.2px solid #c7d4e4;
@@ -214,7 +214,7 @@ section h2::after {
     backdrop-filter: blur(3px);
 }
 
-.card:hover {
+.card-base:hover {
     transform: translateY(-5px);
     border-color: var(--blue-mid);
     box-shadow: var(--shadow-blue);
@@ -231,7 +231,15 @@ section h2::after {
 }
 
 .skill-card {
-    composes: card;
+    composes: card-base;
+    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
+    border-radius: var(--radius);
+    border: 1.2px solid #c7d4e4;
+    box-shadow: var(--shadow-soft);
+    padding: 20px;
+    transition: var(--transition);
+    backdrop-filter: blur(3px);
+
     font-size: 1rem;
     font-weight: 500;
     color: #2b2b2b;
@@ -266,8 +274,13 @@ section h2::after {
    ABOUT SECTION
 ---------------------------------------------------- */
 .about-card {
-    composes: card;
+    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
+    border-radius: var(--radius);
+    border: 1.2px solid #c7d4e4;
+    box-shadow: var(--shadow-soft);
     padding: 30px;
+    transition: var(--transition);
+    backdrop-filter: blur(3px);
 }
 
 /* ----------------------------------------------------
@@ -284,7 +297,14 @@ section h2::after {
 }
 
 .contact-item {
-    composes: card;
+    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
+    border-radius: var(--radius);
+    border: 1.2px solid #c7d4e4;
+    box-shadow: var(--shadow-soft);
+    padding: 20px;
+    transition: var(--transition);
+    backdrop-filter: blur(3px);
+
     width: 280px;
     text-align: center;
     text-decoration: none;
@@ -294,8 +314,15 @@ section h2::after {
 }
 
 .contact-item:nth-child(1) { animation-delay: 0.3s; }
-contact-item:nth-child(2) { animation-delay: 0.5s; }
-contact-item:nth-child(3) { animation-delay: 0.7s; }
+.contact-item:nth-child(2) { animation-delay: 0.5s; }
+.contact-item:nth-child(3) { animation-delay: 0.7s; }
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--blue-mid);
+    box-shadow: var(--shadow-blue);
+    background: #fff;
+}
 
 .contact-icon {
     width: 75px;
@@ -510,40 +537,8 @@ contact-item:nth-child(3) { animation-delay: 0.7s; }
 }
 
 /* ----------------------------------------------------
-   PROJECTS SECTION (HOMEPAGE)
+   PROJECT BUTTONS
 ---------------------------------------------------- */
-.projects-section {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.project-card {
-    composes: card;
-    opacity: 0;
-    transform: translateY(25px);
-}
-
-.project-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.project-img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
 .project-btn {
     display: inline-block;
     margin-top: 12px;
@@ -559,3 +554,22 @@ contact-item:nth-child(3) { animation-delay: 0.7s; }
 .project-btn:hover {
     background: #163a5c;
 }
+
+.project-btn.secondary {
+    background: transparent;
+    border: 1.5px solid var(--blue-light);
+    color: var(--blue-light);
+}
+
+.project-btn.secondary:hover {
+    background: var(--blue-light);
+    color: #000;
+}
+
+/* ----------------------------------------------------
+   PROJECTS SECTION (HOMEPAGE)
+---------------------------------------------------- */
+.projects-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 
