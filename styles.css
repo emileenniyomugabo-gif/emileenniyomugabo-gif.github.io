@@ -202,7 +202,7 @@ section h2::after {
 }
 
 /* ----------------------------------------------------
-   UNIVERSAL CARD STYLE (REPLACES composes:)
+   UNIVERSAL CARD STYLE
 ---------------------------------------------------- */
 .card-base {
     background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
