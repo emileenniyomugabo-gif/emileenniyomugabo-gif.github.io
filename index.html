@@ -63,26 +63,36 @@
 
     <div class="section-divider"></div>
 
-<!-- PROJECTS SECTION -->
-<section class="projects-section reveal">
-    <h2>Projects</h2>
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section reveal">
+        <h2>Projects</h2>
 
-    <div class="projects-grid">
+        <div class="projects-grid">
 
-        <!-- PROJECT 1 -->
-        <div class="project-card">
-            <img src="images/health_checker.png" alt="System Health Checker" class="project-img">
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+                <img src="images/health_checker.png" alt="System Health Checker" class="project-img">
 
-            <h3>System Health Checker</h3>
+                <h3>System Health Checker</h3>
+                <p>A Python tool that analyzes CPU, RAM, disk usage, and system uptime to help diagnose performance issues.</p>
 
-            <p>A Python tool that analyzes CPU, RAM, disk usage, and system uptime to help diagnose performance issues.</p>
+                <a href="project-system-health.html" class="project-btn">View Project</a>
+            </div>
 
-            <a href="project-system-health.html" class="project-btn">View Project</a>
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+                <img src="images/network-scanner.png" alt="Network Scanner" class="project-img">
+
+                <h3>Network Scanner</h3>
+                <p>A Python tool that scans devices, ports, and basic vulnerabilities across a network.</p>
+
+                <a href="project-network-scanner.html" class="project-btn">View Project</a>
+            </div>
+
         </div>
+    </section>
 
-    </div>
-</section>
-
+    <div class="section-divider"></div>
 
     <!-- CONTACT SECTION -->
     <section class="contact-section reveal">
@@ -142,7 +152,6 @@ const reveals = document.querySelectorAll('.reveal');
 const skillCards = document.querySelectorAll('.skill-card');
 
 function revealOnScroll() {
-
     for (let r of reveals) {
         const rect = r.getBoundingClientRect();
         if (rect.top < window.innerHeight - 80) {
