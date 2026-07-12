@@ -63,20 +63,66 @@ body {
 }
 
 /* ------------------------------
-   ABOUT SECTION
+   CLEAN, MODERN, GLOWING ABOUT ME
 ------------------------------ */
-.about-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+
+.about-section {
     text-align: center;
+    margin-bottom: 60px;
 }
 
-.about-card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+/* Gradient background behind the card */
+.about-section {
+    background: linear-gradient(135deg, #e8f0ff, #f7fbff);
+    padding: 60px 20px;
+    border-radius: 20px;
 }
+
+/* Glassmorphism + glow + hover + animation */
+.about-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 50px;
+    border-radius: 20px;
+
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+
+    /* Glow border */
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15),
+                0 0 20px rgba(31, 78, 121, 0.25);
+
+    /* Text styling */
+    text-align: center;
+    line-height: 1.9;
+    font-size: 1.2rem;
+    color: #222;
+
+    /* Reveal animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease;
+}
+
+.about-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Paragraph spacing */
+.about-card p {
+    margin-bottom: 20px;
+}
+
+/* Hover lift effect */
+.about-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18),
+                0 0 30px rgba(31, 78, 121, 0.35);
+}
+
 
 /* ------------------------------
    SKILLS GRID
