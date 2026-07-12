@@ -1,575 +1,260 @@
-/* ----------------------------------------------------
-   ROOT VARIABLES (COLORS, SHADOWS, TRANSITIONS)
----------------------------------------------------- */
-:root {
-    --blue-dark: #1f4e79;
-    --blue-mid: #3a7abf;
-    --blue-light: #93c5fd;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emileen Niyomugabo | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 
-    --bg-light-1: #f5f8fc;
-    --bg-light-2: #eef3f9;
+    <style>
+        /* FIXED CENTERED GLOWING HEADER */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #1f4e79;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            z-index: 999;
+            box-shadow: 0 0 20px rgba(255,255,255,0.25);
+            animation: headerGlow 3s ease-in-out infinite;
+        }
 
-    --text-dark: #333;
-    --text-light: #e5e9f5;
+        .fixed-header h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 600;
+        }
 
-    --shadow-soft: 0 4px 14px rgba(0,0,0,0.06);
-    --shadow-blue: 0 12px 32px rgba(58,122,191,0.25);
+        #typingText {
+            margin-top: 10px;
+            font-size: 20px;
+            opacity: 0.9;
+        }
 
-    --radius: 14px;
-    --transition: 0.3s ease;
-}
+        @keyframes headerGlow {
+            0% { box-shadow: 0 0 12px rgba(255,255,255,0.25); }
+            50% { box-shadow: 0 0 28px rgba(255,255,255,0.55); }
+            100% { box-shadow: 0 0 12px rgba(255,255,255,0.25); }
+        }
 
-/* ----------------------------------------------------
-   GLOBAL STYLES + FLOATING BACKGROUND + PAGE LOAD FADE
----------------------------------------------------- */
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
-    background-size: 200% 200%;
-    animation: bgFloat 12s ease infinite, pageFade 1.2s ease forwards;
-    color: var(--text-dark);
-    opacity: 0;
-}
+        /* Prevent content from hiding under fixed header */
+        body {
+            padding-top: 160px;
+        }
+    </style>
+</head>
 
-@keyframes bgFloat {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
+<body>
 
-@keyframes pageFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+<!-- CURSOR GLOW -->
+<div id="cursorGlow"></div>
 
-/* ----------------------------------------------------
-   PAGE GLOW BORDER
----------------------------------------------------- */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    border: 3px solid rgba(31, 78, 121, 0.35);
-    border-radius: 12px;
-    pointer-events: none;
-    box-shadow: 0 0 25px rgba(31, 78, 121, 0.45);
-    animation: borderPulse 6s ease-in-out infinite;
-}
+<!-- NEW FIXED CENTERED HEADER -->
+<header class="fixed-header">
+    <h1>Emileen Niyomugabo</h1>
+    <p id="typingText"></p>
+</header>
 
-@keyframes borderPulse {
-    0% { box-shadow: 0 0 18px rgba(31, 78, 121, 0.35); }
-    50% { box-shadow: 0 0 32px rgba(31, 78, 121, 0.55); }
-    100% { box-shadow: 0 0 18px rgba(31, 78, 121, 0.35); }
-}
+<div class="section-divider"></div>
 
-/* ----------------------------------------------------
-   CURSOR FOLLOW GLOW
----------------------------------------------------- */
-#cursorGlow {
-    position: fixed;
-    width: 22px;
-    height: 22px;
-    background: radial-gradient(circle, rgba(58,122,191,0.55), transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: 0.08s ease-out;
-    z-index: 9999;
-}
+<div class="container">
 
-/* ----------------------------------------------------
-   HEADER
----------------------------------------------------- */
-header {
-    background-color: var(--blue-dark);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    opacity: 0;
-    animation: headerFade 1.2s ease forwards;
-}
+    <!-- ABOUT SECTION -->
+    <section class="about-section reveal">
+        <h2>About Me</h2>
 
-header h1 {
-    margin: 0;
-    font-size: 42px;
-    font-weight: 600;
-    animation: headerTitleGlow 2.5s ease-in-out infinite;
-}
+        <div class="about-card">
+            <p>I’m an IT Support Specialist with a strong foundation in troubleshooting, system optimization, and network fundamentals. I approach every technical challenge with a mix of logic, curiosity, and calm problem‑solving — because technology should feel reliable, not intimidating.</p>
 
-@keyframes headerFade {
-    from { opacity: 0; transform: translateY(-25px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+            <p>I’m hands‑on, detail‑oriented, and driven by the satisfaction of turning complex issues into clean, efficient solutions. Whether I’m diagnosing hardware problems, securing systems, or helping users understand their tools, I bring clarity, patience, and a steady confidence to every situation.</p>
 
-@keyframes headerTitleGlow {
-    0% { text-shadow: 0 0 6px rgba(255,255,255,0.3); }
-    50% { text-shadow: 0 0 12px rgba(255,255,255,0.6); }
-    100% { text-shadow: 0 0 6px rgba(255,255,255,0.3); }
-}
+            <p>I’m always learning, always improving, and always ready to take on the next challenge — because great IT support isn’t just about fixing problems. It’s about empowering people.</p>
+        </div>
+    </section>
 
-/* ----------------------------------------------------
-   TYPING ANIMATION
----------------------------------------------------- */
-#typingText {
-    font-size: 18px;
-    opacity: 0.9;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid rgba(255,255,255,0.7);
-    width: 0;
-    margin-top: 10px;
-    animation: typing 3s steps(40) forwards, blink 0.7s infinite;
-}
+    <div class="section-divider"></div>
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 360px; }
-}
+    <!-- SKILLS SECTION -->
+    <section class="skills-grid reveal">
+        <h2>Skills</h2>
 
-@keyframes blink {
-    0% { border-color: rgba(255,255,255,0.7); }
-    50% { border-color: transparent; }
-    100% { border-color: rgba(255,255,255,0.7); }
-}
+        <div class="grid">
 
-/* ----------------------------------------------------
-   SECTION TITLES
----------------------------------------------------- */
-section h2 {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 6px;
-    opacity: 0;
-    animation: titleFade 1s ease forwards;
-    transition: var(--transition);
-}
+            <div class="skill-card"><span class="skill-icon">🖧</span> Networking Hardware</div>
+            <div class="skill-card"><span class="skill-icon">📊</span> Network Analysis</div>
+            <div class="skill-card"><span class="skill-icon">🌐</span> Computer Networking</div>
+            <div class="skill-card"><span class="skill-icon">🏗️</span> Network Architecture</div>
+            <div class="skill-card"><span class="skill-icon">🧩</span> Network Models (OSI, TCP/IP)</div>
+            <div class="skill-card"><span class="skill-icon">🔐</span> Network Security</div>
+            <div class="skill-card"><span class="skill-icon">🛡️</span> System Security</div>
+            <div class="skill-card"><span class="skill-icon">🔑</span> Cryptography (Basic)</div>
+            <div class="skill-card"><span class="skill-icon">🐧</span> Linux Administration</div>
+            <div class="skill-card"><span class="skill-icon">🧱</span> Computer Architecture</div>
+            <div class="skill-card"><span class="skill-icon">☁️</span> Cloud Computing</div>
+            <div class="skill-card"><span class="skill-icon">🛡️</span> Security Software</div>
+            <div class="skill-card"><span class="skill-icon">🧠</span> Critical Thinking</div>
+            <div class="skill-card"><span class="skill-icon">🛠️</span> Problem Solving</div>
+            <div class="skill-card"><span class="skill-icon">💬</span> Communication</div>
+            <div class="skill-card"><span class="skill-icon">🤝</span> Collaboration</div>
 
-section h2:hover {
-    transform: translateY(-3px);
-    text-shadow: 0 0 12px rgba(58,122,191,0.55);
-}
+        </div>
+    </section>
 
-@keyframes titleFade {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    <div class="section-divider"></div>
 
-section h2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid));
-    border-radius: 2px;
-    animation: underlineGlow 2s ease-in-out infinite;
-}
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section reveal">
+        <h2>Projects</h2>
 
-@keyframes underlineGlow {
-    0% { opacity: 0.4; }
-    50% { opacity: 1; }
-    100% { opacity: 0.4; }
-}
+        <div class="projects-grid">
 
-/* ----------------------------------------------------
-   SECTION DIVIDER
----------------------------------------------------- */
-.section-divider {
-    width: 80%;
-    height: 3px;
-    margin: 50px auto;
-    background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid), var(--blue-dark));
-    background-size: 200% 100%;
-    animation: dividerGlow 4s ease infinite;
-    border-radius: 2px;
-}
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+                <img src="images/health_checker.png" alt="System Health Checker" class="project-img">
 
-@keyframes dividerGlow {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 0%; }
-    100% { background-position: 0% 0%; }
-}
+                <h3>System Health Checker</h3>
+                <p>A Python tool that analyzes CPU, RAM, disk usage, and system uptime to help diagnose performance issues.</p>
 
-/* ----------------------------------------------------
-   LAYOUT
----------------------------------------------------- */
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
+                <a href="project-system-health.html" class="project-btn">View Project</a>
+            </div>
 
-/* ----------------------------------------------------
-   UNIVERSAL CARD STYLE
----------------------------------------------------- */
-.card-base {
-    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
-    border-radius: var(--radius);
-    border: 1.2px solid #c7d4e4;
-    box-shadow: var(--shadow-soft);
-    padding: 20px;
-    transition: var(--transition);
-    backdrop-filter: blur(3px);
-}
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+                <img src="images/network-scanner.png" alt="Network Scanner" class="project-img">
 
-.card-base:hover {
-    transform: translateY(-5px);
-    border-color: var(--blue-mid);
-    box-shadow: var(--shadow-blue);
-    background: #fff;
-}
+                <h3>Network Scanner</h3>
+                <p>A Python tool that scans devices, ports, and basic vulnerabilities across a network.</p>
 
-/* ----------------------------------------------------
-   SKILLS SECTION
----------------------------------------------------- */
-.skills-grid .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
+                <a href="project-network-scanner.html" class="project-btn">View Project</a>
+            </div>
 
-.skill-card {
-    composes: card-base;
-    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
-    border-radius: var(--radius);
-    border: 1.2px solid #c7d4e4;
-    box-shadow: var(--shadow-soft);
-    padding: 20px;
-    transition: var(--transition);
-    backdrop-filter: blur(3px);
+        </div>
+    </section>
 
-    font-size: 1rem;
-    font-weight: 500;
-    color: #2b2b2b;
-    opacity: 0;
-    transform: translateY(25px);
-}
+    <div class="section-divider"></div>
 
-.skill-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+    <!-- CONTACT SECTION -->
+    <section class="contact-section reveal">
+        <h2>Contact</h2>
 
-.skill-icon {
-    font-size: 1.4rem;
-    margin-right: 10px;
-    display: inline-block;
-    opacity: 0;
-    animation: iconPop 0.6s ease forwards;
-}
+        <div class="contact-row">
 
-.skill-card.visible .skill-icon {
-    animation-delay: 0.2s;
-}
+            <!-- Email -->
+            <a class="contact-item" href="mailto:niyomugaboemileen@gmail.com">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#EA4335" d="M12 13L2 6.5V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6.5L12 13z"/>
+                        <path fill="#4285F4" d="M22 6L12 12 2 6l10-4 10 4z"/>
+                    </svg>
+                </div>
+                <h3>Email</h3>
+                <p>niyomugaboemileen@gmail.com</p>
+            </a>
 
-@keyframes iconPop {
-    0% { opacity: 0; transform: translateY(10px) scale(0.8); }
-    60% { opacity: 1; transform: translateY(-2px) scale(1.15); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}
+            <!-- LinkedIn -->
+            <a class="contact-item" href="https://www.linkedin.com/in/emileen-niyomugabo-793094395" target="_blank">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#0A66C2" d="M4.98 3.5A2.5 2.5 0 112.5 1a2.5 2.5 0 012.48 2.5zM1.2 8h3.6v14H1.2V8zm7.3 0h3.4v2.1h.1c.5-.9 1.9-2.3 4.3-2.3 4.1 0 4.8 2.6 4.8 6.3V22h-3.6v-7.1c0-1.8 0-4-2.3-4-2.3 0-2.6 1.9-2.6 3.9V22H8.5V8z"/>
+                    </svg>
+                </div>
+                <h3>LinkedIn</h3>
+                <p>linkedin.com/in/emileen-niyomugabo-793094395</p>
+            </a>
 
-/* ----------------------------------------------------
-   ABOUT SECTION
----------------------------------------------------- */
-.about-card {
-    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
-    border-radius: var(--radius);
-    border: 1.2px solid #c7d4e4;
-    box-shadow: var(--shadow-soft);
-    padding: 30px;
-    transition: var(--transition);
-    backdrop-filter: blur(3px);
-}
+            <!-- GitHub -->
+            <a class="contact-item" href="https://emileenniyomugabo-gif.github.io" target="_blank">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#000000" d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 015.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11 11 0 0023.5 12C23.5 5.7 18.3.5 12 .5z"/>
+                    </svg>
+                </div>
+                <h3>GitHub</h3>
+                <p>emileenniyomugabo-gif.github.io</p>
+            </a>
 
-/* ----------------------------------------------------
-   CONTACT SECTION
----------------------------------------------------- */
-.contact-row {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-    opacity: 0;
-    animation: fadeInRow 1s ease forwards;
-}
+        </div>
+    </section>
 
-.contact-item {
-    background: linear-gradient(135deg, var(--bg-light-1), var(--bg-light-2));
-    border-radius: var(--radius);
-    border: 1.2px solid #c7d4e4;
-    box-shadow: var(--shadow-soft);
-    padding: 20px;
-    transition: var(--transition);
-    backdrop-filter: blur(3px);
+</div>
 
-    width: 280px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--text-dark);
-    opacity: 0;
-    animation: fadeInCard 1s ease forwards;
-}
+<footer class="footer">
+    <p>© 2026 Emileen Niyomugabo — IT Support Portfolio</p>
+</footer>
 
-.contact-item:nth-child(1) { animation-delay: 0.3s; }
-.contact-item:nth-child(2) { animation-delay: 0.5s; }
-.contact-item:nth-child(3) { animation-delay: 0.7s; }
+<!-- BACK TO TOP BUTTON -->
+<div id="backToTop">↑</div>
 
-.contact-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--blue-mid);
-    box-shadow: var(--shadow-blue);
-    background: #fff;
-}
+<!-- SCROLL + REVEAL SCRIPT -->
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const skillCards = document.querySelectorAll('.skill-card');
 
-.contact-icon {
-    width: 75px;
-    height: 75px;
-    background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 14px auto;
-    box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35);
-    animation: pulseGlow 3s infinite ease-in-out;
-}
+function revealOnScroll() {
+    for (let r of reveals) {
+        const rect = r.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            r.classList.add('visible');
+        }
+    }
 
-@keyframes pulseGlow {
-    0% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
-    50% { box-shadow: 0 6px 18px rgba(31, 78, 121, 0.55); }
-    100% { box-shadow: 0 4px 12px rgba(31, 78, 121, 0.35); }
-}
-
-@keyframes fadeInRow {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInCard {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ----------------------------------------------------
-   SCROLL REVEAL
----------------------------------------------------- */
-.reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: 0.8s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ----------------------------------------------------
-   BACK TO TOP BUTTON
----------------------------------------------------- */
-#backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 48px;
-    height: 48px;
-    background: var(--blue-dark);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    opacity: 0;
-    pointer-events: none;
-    transition: var(--transition);
-}
-
-#backToTop.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* ----------------------------------------------------
-   FOOTER
----------------------------------------------------- */
-.footer {
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: 60px;
-    background-color: #f0f4f8;
-    color: #4a4a4a;
-    font-size: 0.95rem;
-    border-top: 1px solid #d4e0ec;
-}
-
-/* ----------------------------------------------------
-   PROJECT PAGE (DARK MODE)
----------------------------------------------------- */
-.project-body {
-    background: radial-gradient(circle at top, #0b1020 0, #050712 40%, #020308 100%);
-    color: var(--text-light);
-}
-
-.project-header {
-    background: linear-gradient(135deg, #0f172a, #111827);
-    padding: 40px 20px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.8);
-}
-
-.project-header-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.project-header h1 {
-    margin: 10px 0 5px;
-    font-size: 34px;
-}
-
-.project-subtitle {
-    margin: 0 0 15px;
-    font-size: 16px;
-    opacity: 0.85;
-}
-
-.back-link {
-    color: var(--blue-light);
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-.project-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.badge {
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(37, 99, 235, 0.18);
-    border: 1px solid rgba(96, 165, 250, 0.5);
-    font-size: 0.8rem;
-    color: var(--text-light);
-}
-
-.project-main {
-    color: var(--text-light);
-}
-
-.project-section {
-    margin: 40px 0;
-}
-
-.project-section h2::after {
-    background: linear-gradient(90deg, #3b82f6, #22d3ee);
-}
-
-.project-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    gap: 30px;
-}
-
-@media (max-width: 800px) {
-    .project-layout {
-        grid-template-columns: 1fr;
+    for (let card of skillCards) {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            card.classList.add('visible');
+        }
     }
 }
 
-.project-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 10px 0 0;
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+</script>
+
+<!-- BACK TO TOP SCRIPT -->
+<script>
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+<!-- CURSOR GLOW SCRIPT -->
+<script>
+document.addEventListener("mousemove", (e) => {
+    const glow = document.getElementById("cursorGlow");
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
+</script>
+
+<!-- TYPING ANIMATION SCRIPT -->
+<script>
+const typingText = document.getElementById("typingText");
+const message = "IT Support • Troubleshooting • Technical Solutions";
+
+let index = 0;
+
+function typeEffect() {
+    if (index < message.length) {
+        typingText.textContent += message.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
+    }
 }
 
-.project-list li {
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 18px;
-    font-size: 0.98rem;
-}
+window.addEventListener("load", typeEffect);
+</script>
 
-.project-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #38bdf8;
-}
-
-.code-block {
-    background: #020617;
-    color: var(--text-light);
-    padding: 14px 16px;
-    border-radius: 10px;
-    border: 1px solid rgba(148, 163, 184, 0.4);
-    font-size: 0.9rem;
-    overflow-x: auto;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
-    font-family: Consolas, "Fira Code", monospace;
-}
-
-.terminal-diagram {
-    font-family: Consolas, "Fira Code", monospace;
-    font-size: 0.9rem;
-    color: #a5b4fc;
-}
-
-.project-actions {
-    text-align: center;
-}
-
-.project-actions .project-btn {
-    margin: 0 8px;
-}
-
-/* ----------------------------------------------------
-   PROJECT BUTTONS
----------------------------------------------------- */
-.project-btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    background: var(--blue-dark);
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.project-btn:hover {
-    background: #163a5c;
-}
-
-.project-btn.secondary {
-    background: transparent;
-    border: 1.5px solid var(--blue-light);
-    color: var(--blue-light);
-}
-
-.project-btn.secondary:hover {
-    background: var(--blue-light);
-    color: #000;
-}
-
-/* ----------------------------------------------------
-   PROJECTS SECTION (HOMEPAGE)
----------------------------------------------------- */
-.projects-section {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 
+</body>
+</html>
