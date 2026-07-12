@@ -1,22 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Emileen Niyomugabo | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+/* ------------------------------
+   GLOBAL RESET
+------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<body>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    line-height: 1.6;
+    padding-top: 140px; /* space for fixed header */
+}
 
-<!-- CURSOR GLOW -->
-<div id="cursorGlow"></div>
+/* ------------------------------
+   FIXED CENTERED GLOWING HEADER
+------------------------------ */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #1f4e79;
+    color: white;
+    padding: 28px 20px;
+    text-align: center;
+    z-index: 999;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+    animation: headerGlow 3s ease-in-out infinite;
+}
 
-<header class="fixed-header">
-    <h1>Emileen Niyomugabo</h1>
-    <p id="typingText"></p>
-</header>
+.fixed-header h1 {
+    font-size: 2.6rem;
+    font-weight: 600;
+}
 
-<div class="section-divider"></div>
+.fixed-header #typingText {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
 
-<div class="container">
-    <!-- rest of your sections stay exactly the same -->
+@keyframes headerGlow {
+    0% { box-shadow: 0 0 10px rgba(255,255,255,0.25); }
+    50% { box-shadow: 0 0 24px rgba(255,255,255,0.6); }
+    100% { box-shadow: 0 0 10px rgba(255,255,255,0.25); }
+}
+
+/* ------------------------------
+   CONTAINER + SECTIONS
+------------------------------ */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-divider {
+    height: 40px;
+}
+
+/* ------------------------------
+   ABOUT SECTION
+------------------------------ */
+.about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ------------------------------
+   SKILLS GRID
+------------------------------ */
+.skills-grid h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.skill-card {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.5s ease;
+}
+
+.skill-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------------------
+   PROJECTS SECTION
+------------------------------ */
+.projects-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.project-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: #1f4e79;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.project-btn:hover {
+    background: #163a5c;
+}
+
+/* ------------------------------
+   CONTACT SECTION
+------------------------------ */
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.contact-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-4px);
+}
+
+.contact-icon svg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    color: #555;
+}
+
+/* ------------------------------
+   BACK TO TOP BUTTON
+------------------------------ */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1f4e79;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+#backToTop.show {
+    opacity: 1;
+}
+
+/* ------------------------------
+   REVEAL ANIMATION
+------------------------------ */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------------------
+   CURSOR GLOW
+------------------------------ */
+#cursorGlow {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: rgba(31, 78, 121, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    filter: blur(20px);
+    z-index: 1000;
+}
