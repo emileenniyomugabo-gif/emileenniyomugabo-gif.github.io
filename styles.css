@@ -15,13 +15,38 @@ body {
     padding-top: 140px; /* space for fixed header */
 }
 
-/*-----------------------------------
-   Header
------------------------------------*/
+/* ------------------------------
+   FIXED HEADER (BLUE + GLOW)
+------------------------------ */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #1f4e79; /* BLUE HEADER RESTORED */
+    color: white;
+    padding: 20px 30px;
+    z-index: 999;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+    animation: headerGlow 3s ease-in-out infinite;
 
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center main content */
+}
+
+@keyframes headerGlow {
+    0% { box-shadow: 0 0 10px rgba(255,255,255,0.25); }
+    50% { box-shadow: 0 0 24px rgba(255,255,255,0.6); }
+    100% { box-shadow: 0 0 10px rgba(255,255,255,0.25); }
+}
+
+/* ------------------------------
+   HEADER INNER LAYOUT
+------------------------------ */
 .header-inner {
     max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,194 +78,114 @@ body {
 /* RIGHT BUTTON */
 .resume-btn {
     padding: 10px 18px;
-    background: var(--blue-light);
+    background: #93c5fd; /* light blue */
     color: #0b1020;
     font-weight: 600;
     border-radius: 10px;
     text-decoration: none;
-    box-shadow: var(--shadow-blue);
-    transition: var(--transition);
+    box-shadow: 0 0 12px rgba(58,122,191,0.4);
+    transition: 0.3s ease;
     font-size: 0.95rem;
 }
 
 .resume-btn:hover {
-    background: var(--blue-mid);
+    background: #3a7abf;
     color: white;
     transform: translateY(-3px);
 }
 
+/* ------------------------------
+   SECTION DIVIDER
+------------------------------ */
+.section-divider {
+    width: 80%;
+    height: 3px;
+    margin: 50px auto;
+    background: linear-gradient(90deg, #1f4e79, #3a7abf, #1f4e79);
+    background-size: 200% 100%;
+    animation: dividerGlow 4s ease infinite;
+    border-radius: 2px;
+}
+
+@keyframes dividerGlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
+}
 
 /* ------------------------------
-   CONTAINER + SECTIONS
+   CONTAINER
 ------------------------------ */
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.section-divider {
-    height: 40px;
-}
-
-/* ------------------------------
-   ABOUT ME 
------------------------------- */
-
-.about-section {
-    text-align: center;
-    margin-bottom: 60px;
-    background: transparent;
-    padding: 60px 20px;
-    border-radius: 0;
-}
-
-/* Glassmorphism + glow + centered text */
-.about-card {
     max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 50px;
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(12px);
-
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.15),
-        0 0 20px rgba(31, 78, 121, 0.25);
-
-    text-align: center;
-    line-height: 1.9;
-    font-size: 1.2rem;
-    color: #222;
-
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.about-card p {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Hover lift effect */
-.about-card:hover {
-    transform: translateY(-8px);
-    box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.18),
-        0 0 30px rgba(31, 78, 121, 0.35);
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 /* ------------------------------
-   SKILLS GRID
+   ABOUT SECTION
 ------------------------------ */
-.skills-grid h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-}
-
-.skill-card {
+.about-card {
     background: white;
-    padding: 18px;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.5s ease;
-}
-
-.skill-card.visible {
-    opacity: 1;
-    transform: translateY(0);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }
 
 /* ------------------------------
    PROJECTS SECTION
 ------------------------------ */
-.projects-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+.projects-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
 .project-card {
     background: white;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
     text-align: center;
 }
 
-.project-img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.project-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 18px;
-    background: #1f4e79;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.project-btn:hover {
-    background: #163a5c;
+/* FIXED SMALL IMAGE FOR NETWORK SCANNER */
+.project-img-small {
+    width: 160px;
+    margin: 0 auto 15px auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 /* ------------------------------
    CONTACT SECTION
 ------------------------------ */
-.contact-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .contact-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
 }
 
 .contact-item {
     background: white;
     padding: 20px;
     border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    width: 280px;
     text-align: center;
     text-decoration: none;
     color: #222;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .contact-item:hover {
-    transform: translateY(-4px);
-}
-
-.contact-icon svg {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* ------------------------------
@@ -248,57 +193,10 @@ body {
 ------------------------------ */
 .footer {
     text-align: center;
-    padding: 30px;
-    margin-top: 40px;
-    color: #555;
-}
-
-/* ------------------------------
-   BACK TO TOP BUTTON
------------------------------- */
-#backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #1f4e79;
-    color: white;
-    padding: 12px 16px;
-    border-radius: 50%;
-    font-size: 1.4rem;
-    cursor: pointer;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-#backToTop.show {
-    opacity: 1;
-}
-
-/* ------------------------------
-   REVEAL ANIMATION
------------------------------- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ------------------------------
-   CURSOR GLOW
------------------------------- */
-#cursorGlow {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    background: rgba(31, 78, 121, 0.4);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    filter: blur(20px);
-    z-index: 1000;
+    padding: 25px 20px;
+    margin-top: 60px;
+    background-color: #f0f4f8;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+    border-top: 1px solid #d4e0ec;
 }
