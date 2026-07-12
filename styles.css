@@ -63,7 +63,7 @@ body {
 }
 
 /* ------------------------------
-   ABOUT ME — FINAL FIXED VERSION
+   ABOUT ME — FIXED & VISIBLE
 ------------------------------ */
 
 .about-section {
@@ -89,23 +89,18 @@ body {
         0 8px 30px rgba(0, 0, 0, 0.15),
         0 0 20px rgba(31, 78, 121, 0.25);
 
-    text-align: center !important;
+    text-align: center;
     line-height: 1.9;
     font-size: 1.2rem;
     color: #222;
 
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.8s ease;
-}
-
-.about-card.visible {
+    /* FIXED: About Me is now ALWAYS visible */
     opacity: 1;
     transform: translateY(0);
 }
 
 .about-card p {
-    text-align: center !important;
+    text-align: center;
     margin-bottom: 20px;
 }
 
