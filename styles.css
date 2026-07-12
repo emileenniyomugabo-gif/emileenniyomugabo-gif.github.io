@@ -16,7 +16,7 @@ body {
 }
 
 /* ------------------------------
-   FIXED CENTERED GLOWING HEADER
+   CENTERED GLOWING HEADER
 ------------------------------ */
 .fixed-header {
     position: fixed;
@@ -63,15 +63,15 @@ body {
 }
 
 /* ------------------------------
-   ABOUT ME — FIXED & VISIBLE
+   ABOUT ME 
 ------------------------------ */
 
 .about-section {
     text-align: center;
     margin-bottom: 60px;
-    background: linear-gradient(135deg, #d6ecff, #eaf4ff); /* LIGHT BLUE GRADIENT */
+    background: transparent;
     padding: 60px 20px;
-    border-radius: 20px;
+    border-radius: 0;
 }
 
 /* Glassmorphism + glow + centered text */
@@ -94,7 +94,7 @@ body {
     font-size: 1.2rem;
     color: #222;
 
-    opacity: 1; /* ALWAYS VISIBLE */
+    opacity: 1;
     transform: translateY(0);
 }
 
