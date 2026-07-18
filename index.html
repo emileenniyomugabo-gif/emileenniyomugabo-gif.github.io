@@ -4,31 +4,9 @@
     <meta charset="UTF-8">
     <title>Emileen Niyomugabo | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-
-        /* CONTACT ICON FIX */
-        .contact-icon-box {
-            width: 40px;
-            height: 40px;
-            margin: 0 auto 12px auto;
-            background: #e3f2ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 10px rgba(58,122,191,0.3);
-        }
-
-        .contact-icon-box svg {
-            width: 55%;
-            height: 55%;
-        }
-    </style>
 </head>
 
 <body>
-
-<!-- GLOWING CURSOR BALL (correct placement) -->
-<div class="cursor-ball"></div>
 
 <!-- FIXED HEADER -->
 <header class="fixed-header">
@@ -41,7 +19,7 @@
             <p id="typingText"></p>
         </div>
 
-        <!-- FIXED RESUME BUTTON -->
+        <!-- RESUME BUTTON (matches root) -->
         <a href="Emileen_Niyomugabo_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
 
     </div>
@@ -148,11 +126,11 @@
                 <p>View Profile</p>
             </a>
 
-            <!-- GITHUB -->
+            <!-- GITHUB (clean correct logo) -->
             <a class="contact-item" href="https://github.com" target="_blank">
                 <div class="contact-icon-box">
                     <svg viewBox="0 0 24 24">
-                        <path fill="#000000" d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8-.3.8-.6V1.1c0-.3.2-.7.8-.6C20.7 1.6 24 5.9 24 12c0 6.3-5.2 11.5-11.5 11.5S1 18.3 1 12C1 5.7 6.2.5 12 .5z"/>
+                        <path fill="#000000" d="M12 0.5C5.7 0.5 0.5 5.7 0.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.3c-3.2.7-3.9-1.4-3.9-1.4-.5-1.1-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.1-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8-.3.8-.6V7.3c0-.3.2-.7.8-.6C16.7 8.6 20 12.9 20 18.9c0 6.3-5.2 11.5-11.5 11.5S-3 25.2-3 18.9C-3 12.6 2.2 7.4 8.5 7.4z"/>
                     </svg>
                 </div>
                 <h3>GitHub</h3>
@@ -203,20 +181,6 @@
 
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
-</script>
-
-<!-- GLOWING CURSOR BALL SCRIPT -->
-<script>
-    const ball = document.querySelector('.cursor-ball');
-    let lastX = 0;
-    let lastY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-        lastX += (e.clientX - lastX) * 0.25;
-        lastY += (e.clientY - lastY) * 0.25;
-
-        ball.style.transform = `translate(${lastX}px, ${lastY}px)`;
-    });
 </script>
 
 </body>
