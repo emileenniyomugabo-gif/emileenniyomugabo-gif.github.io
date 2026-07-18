@@ -15,14 +15,12 @@
             pointer-events: none;
             z-index: 2000;
 
-            /* Main glowing ball */
             background: radial-gradient(circle,
                 rgba(147,197,253,1) 0%,
                 rgba(58,122,191,0.9) 50%,
                 rgba(58,122,191,0.0) 100%
             );
 
-            /* Shadow trail */
             box-shadow:
                 0 0 20px rgba(147,197,253,0.8),
                 0 0 40px rgba(147,197,253,0.5),
@@ -33,7 +31,7 @@
             transition: transform 0.08s linear;
         }
 
-        /* FIX CONTACT ICON SIZE */
+        /* CONTACT ICON FIX */
         .contact-icon-box {
             width: 48px;
             height: 48px;
@@ -58,7 +56,7 @@
 <!-- GLOWING CURSOR BALL -->
 <div class="cursor-ball"></div>
 
-<!-- FIXED HEADER -->
+<!-- HEADER -->
 <header class="fixed-header">
     <div class="header-inner">
 
@@ -69,7 +67,8 @@
             <p id="typingText"></p>
         </div>
 
-        <a href="resume.pdf" class="resume-btn" target="_blank">Resume</a>
+        <!-- FIXED RESUME BUTTON -->
+        <a href="Emileen_Niyomugabo_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
 
     </div>
 </header>
@@ -131,7 +130,7 @@
             <img src="images/health_checker.png" alt="System Health Checker" class="project-img-small">
             <h3>System Health Checker</h3>
             <p>A Python tool that analyzes system performance, checks disk usage, memory, CPU load, and provides optimization suggestions.</p>
-            <a href="project-system-health-checker.html" class="resume-btn">View Project</a>
+            <a href="project-system-health.html" class="resume-btn">View Project</a>
         </div>
 
         <!-- NETWORK SCANNER -->
