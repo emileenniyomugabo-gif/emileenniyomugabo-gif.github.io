@@ -15,16 +15,13 @@
 <header class="fixed-header">
     <div class="header-inner">
 
-        <!-- LEFT EMPTY SPACER -->
         <div class="header-left"></div>
 
-        <!-- CENTERED NAME + TYPING -->
         <div class="header-center">
             <h1>Emileen Niyomugabo</h1>
             <p id="typingText"></p>
         </div>
 
-        <!-- RIGHT SIDE RESUME BUTTON -->
         <a href="resume.pdf" class="resume-btn" target="_blank">Resume</a>
 
     </div>
@@ -55,35 +52,22 @@
         <div class="skills-grid">
             <div class="grid">
 
-                <div class="skill-card">
-                    <span class="skill-icon">🖥️</span>
-                    Technical Support & Troubleshooting
-                </div>
-
-                <div class="skill-card">
-                    <span class="skill-icon">⚙️</span>
-                    Operating Systems (Windows & Linux)
-                </div>
-
-                <div class="skill-card">
-                    <span class="skill-icon">🌐</span>
-                    Networking & DNS Fundamentals
-                </div>
-
-                <div class="skill-card">
-                    <span class="skill-icon">🔧</span>
-                    Software Installation & Configuration
-                </div>
-
-                <div class="skill-card">
-                    <span class="skill-icon">📡</span>
-                    System Administration Basics
-                </div>
-
-                <div class="skill-card">
-                    <span class="skill-icon">💬</span>
-                    Clear, Support‑Focused Communication
-                </div>
+                <div class="skill-card">Technical Support & Troubleshooting</div>
+                <div class="skill-card">Ticketing Systems (Spiceworks)</div>
+                <div class="skill-card">User Training & Support</div>
+                <div class="skill-card">Operating Systems Installation</div>
+                <div class="skill-card">Software Installation & Configuration</div>
+                <div class="skill-card">Customer Service & Communication</div>
+                <div class="skill-card">Windows (10/11)</div>
+                <div class="skill-card">Linux Fundamentals</div>
+                <div class="skill-card">Domain Name System (DNS)</div>
+                <div class="skill-card">Networking Fundamentals</div>
+                <div class="skill-card">System Administration Basics</div>
+                <div class="skill-card">Clear, Support‑Focused Communication</div>
+                <div class="skill-card">Attention to Detail</div>
+                <div class="skill-card">Problem‑Solving & Critical Thinking</div>
+                <div class="skill-card">Microsoft 365 Fundamentals</div>
+                <div class="skill-card">Basic Cloud Concepts</div>
 
             </div>
         </div>
@@ -95,7 +79,6 @@
     <section class="projects-section">
         <h2>Projects</h2>
 
-        <!-- PROJECT 1 -->
         <div class="project-card">
             <img src="images/system-health-checker.png" alt="System Health Checker" class="project-img-small">
             <h3>System Health Checker</h3>
@@ -103,7 +86,6 @@
             <a href="project-system-health-checker.html" class="resume-btn">View Project</a>
         </div>
 
-        <!-- PROJECT 2 -->
         <div class="project-card">
             <img src="images/network-scanner.png" alt="Network Scanner" class="project-img-small">
             <h3>Network Scanner</h3>
@@ -146,7 +128,7 @@
     © 2026 Emileen Niyomugabo — All Rights Reserved
 </footer>
 
-<!-- TYPING ANIMATION SCRIPT -->
+<!-- TYPING ANIMATION -->
 <script>
     const text = "IT Support Specialist | Troubleshooting | Networking | System Optimization";
     let index = 0;
@@ -161,6 +143,25 @@
     }
 
     typeEffect();
+</script>
+
+<!-- SCROLL REVEAL -->
+<script>
+    const revealElements = document.querySelectorAll(
+        ".about-card, .skill-card, .project-card, .contact-item"
+    );
+
+    function revealOnScroll() {
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 80) {
+                el.classList.add("reveal");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
 </script>
 
 </body>
