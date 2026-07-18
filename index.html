@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <title>Emileen Niyomugabo | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* CONTACT ICON FIX */
+        .contact-icon-box {
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 10px auto;
+            background: #e3f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 8px rgba(58,122,191,0.3);
+        }
+
+        .contact-icon-box svg {
+            width: 70%;
+            height: 70%;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +39,6 @@
             <p id="typingText"></p>
         </div>
 
-        <!-- RESUME BUTTON (matches root) -->
         <a href="Emileen_Niyomugabo_Resume.pdf" class="resume-btn" target="_blank">Resume</a>
 
     </div>
@@ -103,34 +122,39 @@
 
         <div class="contact-row">
 
-            <!-- EMAIL -->
+            <!-- EMAIL (Gmail icon) -->
             <a class="contact-item" href="mailto:niyomugaboemileen@gmail.com">
                 <div class="contact-icon-box">
                     <svg viewBox="0 0 24 24">
-                        <path fill="#EA4335" d="M12 13L2 6.5V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6.5L12 13z"/>
-                        <path fill="#4285F4" d="M22 6L12 12 2 6l10-4 10 4z"/>
+                        <path fill="#EA4335" d="M12 12.713l-11.99-9.713h23.98z"/>
+                        <path fill="#34A853" d="M0 3v13.5l6-4.5z"/>
+                        <path fill="#4285F4" d="M24 3v13.5l-6-4.5z"/>
+                        <path fill="#FBBC05" d="M12 12.713l6-4.5v9.787z"/>
+                        <path fill="#C5221F" d="M12 12.713l-6-4.5v9.787z"/>
                     </svg>
                 </div>
                 <h3>Email</h3>
                 <p>niyomugaboemileen@gmail.com</p>
             </a>
 
-            <!-- LINKEDIN -->
+            <!-- LINKEDIN (blue circle with “in”) -->
             <a class="contact-item" href="https://www.linkedin.com" target="_blank">
                 <div class="contact-icon-box">
                     <svg viewBox="0 0 24 24">
-                        <path fill="#0A66C2" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.7-2.2 3.6-2.2 3.8 0 4.5 2.5 4.5 5.8V24h-4v-7.8c0-1.9-.1-4.3-2.6-4.3-2.6 0-3 2-3 4.1V24h-4V8z"/>
+                        <circle cx="12" cy="12" r="12" fill="#0A66C2"/>
+                        <path fill="#FFFFFF" d="M9 17H6V10h3v7zM7.5 8.5C6.7 8.5 6 7.8 6 7s.7-1.5 1.5-1.5S9 6.2 9 7s-.7 1.5-1.5 1.5zM18 17h-3v-3.5c0-.9-.3-1.5-1.2-1.5-.7 0-1.1.5-1.3 1-.1.2-.1.5-.1.8V17h-3s.1-6 0-7h3v1c.4-.6 1.1-1.3 2.6-1.3 1.9 0 3 1.2 3 3.7V17z"/>
                     </svg>
                 </div>
                 <h3>LinkedIn</h3>
                 <p>View Profile</p>
             </a>
 
-            <!-- GITHUB (clean correct logo) -->
+            <!-- GITHUB (black circle + white Octocat) -->
             <a class="contact-item" href="https://github.com" target="_blank">
                 <div class="contact-icon-box">
                     <svg viewBox="0 0 24 24">
-                        <path fill="#000000" d="M12 0.5C5.7 0.5 0.5 5.7 0.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.3c-3.2.7-3.9-1.4-3.9-1.4-.5-1.1-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.1-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8-.3.8-.6V7.3c0-.3.2-.7.8-.6C16.7 8.6 20 12.9 20 18.9c0 6.3-5.2 11.5-11.5 11.5S-3 25.2-3 18.9C-3 12.6 2.2 7.4 8.5 7.4z"/>
+                        <circle cx="12" cy="12" r="12" fill="#000000"/>
+                        <path fill="#FFFFFF" d="M12 2C7 2 3 6 3 11c0 4 2.6 7.4 6.2 8.6.5.1.8-.2.8-.6v-2c-2.5.6-3.1-1.1-3.1-1.1-.4-.9-.9-1.1-.9-1.1-.8-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.4-1.1.7-1.4-2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1 1-.3 2-.4 3-.4s2 .1 3 .4c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.7 1.1 1.6 1.1 2.7 0 3.8-2.3 4.7-4.5 4.9.4.3.8 1 .8 2v2.9c0 .4.3.7.8.6C18.4 18.4 21 15 21 11c0-5-4-9-9-9z"/>
                     </svg>
                 </div>
                 <h3>GitHub</h3>
