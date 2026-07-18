@@ -4,12 +4,37 @@
     <meta charset="UTF-8">
     <title>Emileen Niyomugabo | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- GLOWING CURSOR TAIL STYLES -->
+    <style>
+        .cursor-dot {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            background: radial-gradient(circle, #93c5fd 0%, #3a7abf 60%, transparent 100%);
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.2s ease;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- CURSOR GLOW -->
-<div id="cursorGlow"></div>
+<!-- CURSOR TAIL DOTS -->
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-dot"></div>
 
 <!-- FIXED HEADER -->
 <header class="fixed-header">
@@ -79,13 +104,15 @@
     <section class="projects-section">
         <h2>Projects</h2>
 
+        <!-- SYSTEM HEALTH CHECKER -->
         <div class="project-card">
-            <img src="images/system-health-checker.png" alt="System Health Checker" class="project-img-small">
+            <img src="images/health_checker.png" alt="System Health Checker" class="project-img-small">
             <h3>System Health Checker</h3>
             <p>A Python tool that analyzes system performance, checks disk usage, memory, CPU load, and provides optimization suggestions.</p>
             <a href="project-system-health-checker.html" class="resume-btn">View Project</a>
         </div>
 
+        <!-- NETWORK SCANNER -->
         <div class="project-card">
             <img src="images/network-scanner.png" alt="Network Scanner" class="project-img-small">
             <h3>Network Scanner</h3>
@@ -103,18 +130,37 @@
 
         <div class="contact-row">
 
+            <!-- EMAIL -->
             <a class="contact-item" href="mailto:niyomugaboemileen@gmail.com">
+                <div class="contact-icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#EA4335" d="M12 13L2 6.5V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6.5L12 13z"/>
+                        <path fill="#4285F4" d="M22 6L12 12 2 6l10-4 10 4z"/>
+                    </svg>
+                </div>
                 <h3>Email</h3>
                 <p>niyomugaboemileen@gmail.com</p>
             </a>
 
+            <!-- LINKEDIN -->
             <a class="contact-item" href="https://www.linkedin.com" target="_blank">
+                <div class="contact-icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#0A66C2" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.7-2.2 3.6-2.2 3.8 0 4.5 2.5 4.5 5.8V24h-4v-7.8c0-1.9-.1-4.3-2.6-4.3-2.6 0-3 2-3 4.1V24h-4V8z"/>
+                    </svg>
+                </div>
                 <h3>LinkedIn</h3>
                 <p>View Profile</p>
             </a>
 
-            <a class="contact-item" href="https://yourportfolio.com" target="_blank">
-                <h3>Portfolio</h3>
+            <!-- GITHUB -->
+            <a class="contact-item" href="https://github.com" target="_blank">
+                <div class="contact-icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#000000" d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8-.3.8-.6V1.1c0-.3.2-.7.8-.6C20.7 1.6 24 5.9 24 12c0 6.3-5.2 11.5-11.5 11.5S1 18.3 1 12C1 5.7 6.2.5 12 .5z"/>
+                    </svg>
+                </div>
+                <h3>GitHub</h3>
                 <p>View Projects</p>
             </a>
 
@@ -162,6 +208,27 @@
 
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
+</script>
+
+<!-- GLOWING CURSOR TAIL SCRIPT -->
+<script>
+    const dots = document.querySelectorAll('.cursor-dot');
+    const positions = Array(dots.length).fill({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+
+    window.addEventListener('mousemove', (e) => {
+        positions.unshift({ x: e.clientX, y: e.clientY });
+        positions.pop();
+
+        dots.forEach((dot, index) => {
+            const pos = positions[index];
+            dot.style.opacity = 1;
+            dot.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+        });
+    });
+
+    window.addEventListener('mouseleave', () => {
+        dots.forEach(dot => dot.style.opacity = 0);
+    });
 </script>
 
 </body>
