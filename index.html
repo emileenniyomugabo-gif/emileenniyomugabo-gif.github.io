@@ -5,36 +5,58 @@
     <title>Emileen Niyomugabo | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- GLOWING CURSOR TAIL STYLES -->
+    <!-- GLOWING CURSOR BALL STYLE -->
     <style>
-        .cursor-dot {
+        .cursor-ball {
             position: fixed;
-            width: 14px;
-            height: 14px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             pointer-events: none;
-            z-index: 1000;
-            background: radial-gradient(circle, #93c5fd 0%, #3a7abf 60%, transparent 100%);
-            opacity: 0;
+            z-index: 2000;
+
+            /* Main glowing ball */
+            background: radial-gradient(circle,
+                rgba(147,197,253,1) 0%,
+                rgba(58,122,191,0.9) 50%,
+                rgba(58,122,191,0.0) 100%
+            );
+
+            /* Shadow trail */
+            box-shadow:
+                0 0 20px rgba(147,197,253,0.8),
+                0 0 40px rgba(147,197,253,0.5),
+                0 0 60px rgba(147,197,253,0.3);
+
+            filter: blur(2px);
             transform: translate(-50%, -50%);
-            transition: opacity 0.2s ease;
+            transition: transform 0.08s linear;
+        }
+
+        /* FIX CONTACT ICON SIZE */
+        .contact-icon-box {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px auto;
+            background: #e3f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 12px rgba(58,122,191,0.4);
+        }
+
+        .contact-icon-box svg {
+            width: 60%;
+            height: 60%;
         }
     </style>
 </head>
 
 <body>
 
-<!-- CURSOR TAIL DOTS -->
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-dot"></div>
+<!-- GLOWING CURSOR BALL -->
+<div class="cursor-ball"></div>
 
 <!-- FIXED HEADER -->
 <header class="fixed-header">
@@ -210,24 +232,17 @@
     revealOnScroll();
 </script>
 
-<!-- GLOWING CURSOR TAIL SCRIPT -->
+<!-- GLOWING CURSOR BALL SCRIPT -->
 <script>
-    const dots = document.querySelectorAll('.cursor-dot');
-    const positions = Array(dots.length).fill({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+    const ball = document.querySelector('.cursor-ball');
+    let lastX = 0;
+    let lastY = 0;
 
     window.addEventListener('mousemove', (e) => {
-        positions.unshift({ x: e.clientX, y: e.clientY });
-        positions.pop();
+        lastX += (e.clientX - lastX) * 0.25;
+        lastY += (e.clientY - lastY) * 0.25;
 
-        dots.forEach((dot, index) => {
-            const pos = positions[index];
-            dot.style.opacity = 1;
-            dot.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
-        });
-    });
-
-    window.addEventListener('mouseleave', () => {
-        dots.forEach(dot => dot.style.opacity = 0);
+        ball.style.transform = `translate(${lastX}px, ${lastY}px)`;
     });
 </script>
 
