@@ -6,16 +6,6 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        .tic-container {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(58,122,191,0.15);
-            text-align: center;
-        }
-
         .tic-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -23,7 +13,6 @@
             margin-top: 20px;
             border: 3px solid black;
         }
-
         .tic-cell {
             width: 100px;
             height: 100px;
@@ -36,44 +25,8 @@
             justify-content: center;
             cursor: pointer;
         }
-
-        .tic-cell.x {
-            color: #3A7ABF; /* Blue X */
-        }
-
-        .tic-cell.o {
-            color: #D9534F; /* Red O */
-        }
-
-        .reset-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #3A7ABF;
-            color: white;
-            border-radius: 8px;
-            font-size: 16px;
-            display: inline-block;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .reset-btn:hover {
-            background: #2F5F91;
-        }
-
-        .back-btn {
-            margin-top: 30px;
-            display: inline-block;
-            padding: 10px 20px;
-            background: #444;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-
-        .back-btn:hover {
-            background: #222;
-        }
+        .tic-cell.x { color: #3A7ABF; }
+        .tic-cell.o { color: #D9534F; }
     </style>
 </head>
 
@@ -81,42 +34,79 @@
 
 <div class="container">
 
-    <section class="projects-section">
-        <h2>Tic Tac Toe Game</h2>
+    <div class="section-divider"></div>
 
-        <div class="tic-container">
-            <p>A clean, simple Tic Tac Toe game built for two players. Detects wins, draws, and allows instant board reset.</p>
-
-            <div id="status" style="margin-top: 10px; font-size: 20px; font-weight: bold; color: #3A7ABF;">
-                Player X's turn
-            </div>
-
-            <div class="tic-grid" id="board">
-                <div class="tic-cell" data-index="0"></div>
-                <div class="tic-cell" data-index="1"></div>
-                <div class="tic-cell" data-index="2"></div>
-                <div class="tic-cell" data-index="3"></div>
-                <div class="tic-cell" data-index="4"></div>
-                <div class="tic-cell" data-index="5"></div>
-                <div class="tic-cell" data-index="6"></div>
-                <div class="tic-cell" data-index="7"></div>
-                <div class="tic-cell" data-index="8"></div>
-            </div>
-
-            <div class="reset-btn" id="reset">Reset Game</div>
-
-            <a href="index.html" class="back-btn">← Back to Portfolio</a>
-        </div>
-
+    <!-- HERO IMAGE -->
+    <section class="project-section reveal" style="text-align:center;">
+        <img src="images/tic-tac-toe.svg" 
+             alt="Tic Tac Toe Game" 
+             style="max-width:500px; border-radius:12px; box-shadow:0 0 25px rgba(58,122,191,0.4);">
     </section>
+
+    <div class="section-divider"></div>
+
+    <!-- OVERVIEW -->
+    <section class="project-section reveal">
+        <h2>Overview</h2>
+        <p>
+            This Tic Tac Toe game is a clean, interactive two-player experience built with HTML, CSS, and JavaScript.
+            It detects wins, draws, and allows instant board resets. The design is simple, responsive, and easy to play.
+        </p>
+        <p>
+            This project demonstrates DOM manipulation, game logic, event handling, and UI design fundamentals.
+        </p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- FEATURES -->
+    <section class="project-section reveal">
+        <h2>Features</h2>
+        <ul>
+            <li>Two-player game logic</li>
+            <li>Win and draw detection</li>
+            <li>Instant reset button</li>
+            <li>Clean, readable board layout</li>
+            <li>Color-coded X and O markers</li>
+        </ul>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- TECHNOLOGIES -->
+    <section class="project-section reveal">
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- GITHUB BUTTON -->
+    <section class="project-section reveal" style="text-align:center;">
+        <a class="resume-btn"
+           href="https://github.com/emileenniyomugabo-gif/emileenniyomugabo-gif.github.io/blob/main/project-tic-tac-toe.html"
+           target="_blank">
+           View Code on GitHub
+        </a>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- BACK BUTTON -->
+    <section class="project-section reveal" style="text-align:center;">
+        <a href="index.html" class="resume-btn">← Back to Portfolio</a>
+    </section>
+
+    <div class="section-divider"></div>
 
 </div>
 
 <script>
     const board = document.querySelectorAll('.tic-cell');
-    const status = document.getElementById('status');
-    const resetBtn = document.getElementById('reset');
-
     let currentPlayer = "X";
     let gameActive = true;
     let gameState = ["", "", "", "", "", "", "", "", ""];
@@ -127,22 +117,6 @@
         [0,4,8], [2,4,6]
     ];
 
-    function checkWin() {
-        for (let condition of winningConditions) {
-            const [a,b,c] = condition;
-            if (gameState[a] && gameState[a] === gameState[b] && gameState[b] === gameState[c]) {
-                status.textContent = `Player ${gameState[a]} wins!`;
-                gameActive = false;
-                return;
-            }
-        }
-
-        if (!gameState.includes("")) {
-            status.textContent = "It's a draw!";
-            gameActive = false;
-        }
-    }
-
     board.forEach(cell => {
         cell.addEventListener('click', () => {
             const index = cell.dataset.index;
@@ -151,31 +125,25 @@
 
             gameState[index] = currentPlayer;
             cell.textContent = currentPlayer;
+            cell.classList.add(currentPlayer.toLowerCase());
 
-            if (currentPlayer === "X") {
-                cell.classList.add("x");
-            } else {
-                cell.classList.add("o");
+            for (let condition of winningConditions) {
+                const [a,b,c] = condition;
+                if (gameState[a] && gameState[a] === gameState[b] && gameState[b] === gameState[c]) {
+                    alert(`Player ${gameState[a]} wins`);
+                    gameActive = false;
+                    return;
+                }
             }
 
-            checkWin();
-
-            if (gameActive) {
-                currentPlayer = currentPlayer === "X" ? "O" : "X";
-                status.textContent = `Player ${currentPlayer}'s turn`;
+            if (!gameState.includes("")) {
+                alert("It's a draw");
+                gameActive = false;
+                return;
             }
-        });
-    });
 
-    resetBtn.addEventListener('click', () => {
-        gameState = ["", "", "", "", "", "", "", "", ""];
-        board.forEach(cell => {
-            cell.textContent = "";
-            cell.classList.remove("x", "o");
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
         });
-        currentPlayer = "X";
-        gameActive = true;
-        status.textContent = "Player X's turn";
     });
 </script>
 
