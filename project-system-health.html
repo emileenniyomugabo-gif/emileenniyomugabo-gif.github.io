@@ -4,114 +4,82 @@
     <meta charset="UTF-8">
     <title>System Health Checker | Emileen Niyomugabo</title>
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        .project-container {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 14px;
-            box-shadow: 0 0 25px rgba(58,122,191,0.15);
-        }
-
-        .project-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .project-header img {
-            width: 140px;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            color: #3A7ABF;
-            font-weight: bold;
-        }
-
-        .back-btn {
-            margin-top: 40px;
-            display: inline-block;
-            padding: 12px 22px;
-            background: #444;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-
-        .back-btn:hover {
-            background: #222;
-        }
-
-        .github-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 22px;
-            background: #3A7ABF;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .github-btn:hover {
-            background: #2F5F91;
-        }
-    </style>
 </head>
 
 <body>
 
-<div class="project-container">
+<div class="container">
 
-    <!-- HEADER -->
-    <div class="project-header">
-        <img src="images/health_checker.png" alt="System Health Checker">
-        <h1>System Health Checker</h1>
-        <p>A Python tool that analyzes system performance, checks disk usage, memory, CPU load, and provides optimization suggestions.</p>
-    </div>
+    <div class="section-divider"></div>
+
+    <!-- HERO IMAGE -->
+    <section class="project-section reveal" style="text-align:center;">
+        <img src="images/health_checker.png" 
+             alt="System Health Checker" 
+             style="max-width:800px; border-radius:12px; box-shadow:0 0 25px rgba(58,122,191,0.4);">
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- OVERVIEW -->
-    <h2 class="section-title">Overview</h2>
-    <p>
-        The System Health Checker is a lightweight diagnostic tool designed to help users quickly understand the current state of their computer.
-        It gathers essential system metrics and presents them in a clear, readable format. This project demonstrates Python scripting,
-        system monitoring, and practical IT support skills.
-    </p>
+    <section class="project-section reveal">
+        <h2>Overview</h2>
+        <p>
+            The System Health Checker is a Python-based diagnostic tool that analyzes CPU usage, RAM utilization,
+            disk space, and system uptime. It provides a clear snapshot of system performance and offers basic
+            optimization suggestions.
+        </p>
+        <p>
+            This project reflects my focus on practical troubleshooting tools — the kind of utilities that make
+            diagnosing performance issues faster, more consistent, and less stressful.
+        </p>
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- FEATURES -->
-    <h2 class="section-title">Key Features</h2>
-    <ul>
-        <li>Real-time CPU usage monitoring</li>
-        <li>Memory and disk usage analysis</li>
-        <li>System performance summary</li>
-        <li>Optimization suggestions based on thresholds</li>
-        <li>Clean, readable console output</li>
-    </ul>
+    <section class="project-section reveal">
+        <h2>Features</h2>
+        <ul>
+            <li>Real-time CPU usage monitoring</li>
+            <li>Memory and disk usage analysis</li>
+            <li>System uptime tracking</li>
+            <li>Readable, color-coded console output</li>
+            <li>Lightweight and fast execution</li>
+        </ul>
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- TECHNOLOGIES -->
-    <h2 class="section-title">Technologies Used</h2>
-    <ul>
-        <li>Python 3</li>
-        <li>psutil library</li>
-        <li>Standard system utilities</li>
-    </ul>
+    <section class="project-section reveal">
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>Python 3</li>
+            <li>psutil library</li>
+            <li>Standard system utilities</li>
+        </ul>
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- GITHUB BUTTON -->
-    <a class="github-btn" 
-       href="https://github.com/emileenniyomugabo-gif/emileenniyomugabo-gif.github.io/blob/main/project-system-health.html" 
-       target="_blank">
-       View Code on GitHub
-    </a>
+    <section class="project-section reveal" style="text-align:center;">
+        <a class="resume-btn"
+           href="https://github.com/emileenniyomugabo-gif/emileenniyomugabo-gif.github.io/blob/main/project-system-health.html"
+           target="_blank">
+           View Code on GitHub
+        </a>
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- BACK BUTTON -->
-    <br>
-    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    <section class="project-section reveal" style="text-align:center;">
+        <a href="index.html" class="resume-btn">← Back to Portfolio</a>
+    </section>
+
+    <div class="section-divider"></div>
 
 </div>
 
