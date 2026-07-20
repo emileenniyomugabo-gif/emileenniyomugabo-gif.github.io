@@ -226,7 +226,6 @@ body {
 }
 
 
-
 /* ------------------------------
    CONTACT SECTION
 ------------------------------ */
@@ -269,3 +268,28 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* OVERRIDE PROJECT SECTION FOR TIC TAC TOE */
+.tic-section.project-section {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* REMOVE CONTAINER SPACING FOR TIC TAC TOE */
+.tic-section .container,
+.tic-section {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* SHRINK BOARD SPACING */
+.tic-grid {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-width: 2px !important;
+}
+
+.tic-cell {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 40px !important;
+}
+
