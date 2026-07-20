@@ -1,9 +1,19 @@
-
+/* ------------------------------
+   GLOBAL
+------------------------------ */
 body {
     margin: 0;
-    padding-top: 120px; /* makes room for the fixed header */
+    padding-top: 160px; /* correct spacing for fixed header */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #f5f7fb;
+}
+
+/* About card width fix */
+.about-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
 }
 
 /* ------------------------------
@@ -64,11 +74,11 @@ body {
 }
 
 /* ------------------------------
-   BUTTONS (RESTORED + POLISHED)
+   BUTTONS (RESTORED ORIGINAL LOOK)
 ------------------------------ */
 .resume-btn {
     padding: 10px 18px;
-    background: #93c5fd; /* restored light blue */
+    background: #93c5fd; /* original light blue */
     color: #0b1020;
     font-weight: 600;
     border-radius: 10px;
@@ -108,7 +118,7 @@ body {
 ------------------------------ */
 .container {
     max-width: 900px;
-    margin: 40px auto;
+    margin: 80px auto; /* correct spacing under header */
     padding: 0 20px;
 }
 
@@ -127,14 +137,14 @@ body {
 }
 
 /* ------------------------------
-   PROJECT CARDS (RESTORED + POLISHED)
+   PROJECT CARDS (CLEAN + STABLE)
 ------------------------------ */
 .project-card {
     text-align: center;
     padding: 20px;
     border-radius: 12px;
     background: #ffffff;
-    box-shadow: 0 0 12px rgba(58,122,191,0.15); /* softer shadow */
+    box-shadow: 0 0 12px rgba(58,122,191,0.15);
     margin-bottom: 40px;
     transition: 0.3s ease;
 }
@@ -145,7 +155,7 @@ body {
 }
 
 /* ------------------------------
-   PROJECT IMAGES (RESTORED)
+   PROJECT IMAGES
 ------------------------------ */
 .project-img-small {
     width: 140px;
