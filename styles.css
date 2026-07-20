@@ -1,21 +1,4 @@
 /* ------------------------------
-   GLOBAL RESET
------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #e3f2ff; /* LIGHT BLUE BACKGROUND */
-    color: #222;
-    line-height: 1.6;
-    padding-top: 140px; /* space for fixed header */
-}
-
-/* ------------------------------
    FIXED HEADER (BLUE + GLOW)
 ------------------------------ */
 .fixed-header {
@@ -23,13 +6,12 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: #1f4e79; /* BLUE HEADER */
+    background: #1f4e79;
     color: white;
     padding: 20px 30px;
     z-index: 999;
     box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
     animation: headerGlow 3s ease-in-out infinite;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,12 +34,10 @@ body {
     justify-content: space-between;
 }
 
-/* LEFT EMPTY SPACER */
 .header-left {
     width: 120px;
 }
 
-/* CENTER CONTENT */
 .header-center {
     text-align: center;
     flex: 1;
@@ -75,27 +55,28 @@ body {
     opacity: 0.9;
 }
 
-/* RIGHT BUTTON */
+/* ------------------------------
+   BUTTONS (Unified Across Site)
+------------------------------ */
 .resume-btn {
-    padding: 10px 18px;
-    background: #93c5fd; /* light blue */
-    color: #0b1020;
-    font-weight: 600;
-    border-radius: 10px;
+    display: inline-block;
+    padding: 12px 22px;
+    background: #3A7ABF;
+    color: white;
+    border-radius: 8px;
     text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s ease;
     box-shadow: 0 0 12px rgba(58,122,191,0.4);
-    transition: 0.3s ease;
-    font-size: 0.95rem;
 }
 
 .resume-btn:hover {
-    background: #3a7abf;
-    color: white;
+    background: #2F5F91;
     transform: translateY(-3px);
 }
 
 /* ------------------------------
-   SECTION DIVIDER
+   SECTION DIVIDER (Unified)
 ------------------------------ */
 .section-divider {
     width: 80%;
@@ -123,106 +104,92 @@ body {
 }
 
 /* ------------------------------
-   ABOUT SECTION
+   CENTER ALL SECTION HEADINGS
 ------------------------------ */
-.about-card {
-    background: white;
+.about-section h2,
+.skills-section h2,
+.projects-section h2,
+.contact-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #1f4e79;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* ------------------------------
+   PROJECT CARDS (Polished)
+------------------------------ */
+.project-card {
+    text-align: center;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    margin-top: 20px;
+    background: #ffffff;
+    box-shadow: 0 0 20px rgba(58,122,191,0.15);
+    margin-bottom: 40px;
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(58,122,191,0.25);
 }
 
 /* ------------------------------
-   SKILLS SECTION
+   PROJECT IMAGES (Unified Glow)
 ------------------------------ */
-.skills-grid .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.skill-card {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    text-align: center;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.skill-icon {
-    font-size: 1.6rem;
-    display: block;
-    margin-bottom: 8px;
-}
-
-/* ------------------------------
-   PROJECTS SECTION
------------------------------- */
-.projects-section {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-.project-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-/* FIXED SMALL IMAGE FOR NETWORK SCANNER */
 .project-img-small {
-    width: 160px;
-    margin: 0 auto 15px auto;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    width: 140px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(58,122,191,0.25);
+    margin-bottom: 15px;
+}
+
+/* ------------------------------
+   PROJECT TITLES
+------------------------------ */
+.project-card h3 {
+    font-size: 1.4rem;
+    color: #1f4e79;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* ------------------------------
+   PROJECT DESCRIPTIONS
+------------------------------ */
+.project-card p {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 /* ------------------------------
    CONTACT SECTION
 ------------------------------ */
-.contact-row {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
 .contact-item {
-    background: white;
+    text-align: center;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    width: 280px;
-    text-align: center;
-    text-decoration: none;
-    color: #222;
     transition: 0.3s ease;
 }
 
 .contact-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* ------------------------------
-   FOOTER
+   REVEAL ANIMATION (Unified)
 ------------------------------ */
-.footer {
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: 60px;
-    background-color: #f0f4f8;
-    color: #4a4a4a;
-    font-size: 0.95rem;
-    border-top: 1px solid #d4e0ec;
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+}
+
+.reveal.reveal {
+    opacity: 1;
+    transform: translateY(0);
 }
