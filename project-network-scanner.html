@@ -2,103 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Network Scanner | Project</title>
+    <title>Network Scanner | Emileen Niyomugabo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="project-body">
+<body>
 
-<!-- CURSOR GLOW -->
-<div id="cursorGlow"></div>
+<div class="container">
 
-<header class="project-header">
-    <div class="project-header-inner">
-        <a href="index.html" class="back-link">← Back to Portfolio</a>
-        <h1>Network Scanner</h1>
-        <p class="project-subtitle">A Python tool that scans devices, ports, and basic vulnerabilities across a network.</p>
+    <div class="section-divider"></div>
 
-        <div class="project-badges">
-            <span class="badge">Python</span>
-            <span class="badge">Sockets</span>
-            <span class="badge">Networking</span>
-            <span class="badge">Automation</span>
-        </div>
-    </div>
-</header>
+    <!-- HERO IMAGE -->
+    <section class="project-section reveal" style="text-align:center;">
+        <img src="images/network-scanner.png" 
+             alt="Network Scanner" 
+             style="max-width:800px; border-radius:12px; box-shadow:0 0 25px rgba(58,122,191,0.4);">
+    </section>
 
-<div class="section-divider"></div>
-
-<!-- ⭐ HERO IMAGE (this was missing — now fixed) -->
-<section class="project-section reveal" style="text-align:center;">
-   <img src="images/network-scanner.png" 
-     alt="Network Scanner Visualization" 
-     style="max-width:300px; border-radius:12px; box-shadow:0 0 25px rgba(58,122,191,0.4);">
-
-</section>
-
-<div class="section-divider"></div>
-
-<main class="project-main container">
+    <div class="section-divider"></div>
 
     <!-- OVERVIEW -->
     <section class="project-section reveal">
         <h2>Overview</h2>
         <p>
-            The Network Scanner is a lightweight Python tool designed to detect active devices on a network, identify open ports, 
-            and highlight potential security risks. It’s built for IT technicians who need quick visibility into what’s happening 
-            on a local network without relying on heavy enterprise tools.
+            The Network Scanner is a lightweight Python tool designed to detect active devices on a network,
+            identify open ports, and highlight potential security risks. It provides quick visibility into
+            what’s happening across a local network without relying on heavy enterprise tools.
         </p>
         <p>
-            This project strengthened my understanding of networking fundamentals, socket programming, and how devices communicate 
-            across a LAN. It also helped me practice writing clean, modular code for real-world troubleshooting tasks.
+            This project strengthened my understanding of networking fundamentals, socket programming,
+            and how devices communicate across a LAN. It also helped me practice writing clean, modular
+            code for real-world troubleshooting tasks.
         </p>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- FEATURES + TECH STACK -->
-    <section class="project-section project-layout reveal">
-        <div>
-            <h2>Key Features</h2>
-            <ul class="project-list">
-                <li>Scans a full IP range for active devices</li>
-                <li>Detects open ports on each device</li>
-                <li>Identifies common service ports (HTTP, SSH, RDP, etc.)</li>
-                <li>Fast multi-threaded scanning</li>
-                <li>Clean, readable CLI output</li>
-                <li>Error handling for unreachable hosts</li>
-            </ul>
-        </div>
-
-        <div>
-            <h2>Tech Stack</h2>
-            <ul class="project-list">
-                <li>Python 3</li>
-                <li><code>sockets</code> for network communication</li>
-                <li><code>threading</code> for fast scanning</li>
-                <li>Runs on Windows, Linux, and macOS</li>
-            </ul>
-        </div>
+    <!-- FEATURES -->
+    <section class="project-section reveal">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Scans a full IP range for active devices</li>
+            <li>Detects open ports on each device</li>
+            <li>Identifies common service ports (HTTP, SSH, RDP, etc.)</li>
+            <li>Fast multi-threaded scanning</li>
+            <li>Clean, readable CLI output</li>
+            <li>Error handling for unreachable hosts</li>
+        </ul>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- HOW IT WORKS + SAMPLE OUTPUT -->
-    <section class="project-section project-layout reveal">
-        <div>
-            <h2>How It Works</h2>
-            <p>
-                The scanner sends connection attempts to a range of IP addresses and ports. If a device responds, it is marked as active. 
-                For each active device, the tool checks a list of common ports to identify running services.
-            </p>
-            <p class="terminal-diagram">
-                [ User ] → [ Python Scanner ] → [ IP Range ] → [ Port Checks ] → [ Report ]
-            </p>
-        </div>
+    <!-- TECHNOLOGIES -->
+    <section class="project-section reveal">
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>Python 3</li>
+            <li><code>sockets</code> for network communication</li>
+            <li><code>threading</code> for fast scanning</li>
+            <li>Runs on Windows, Linux, and macOS</li>
+        </ul>
+    </section>
 
-        <div>
-            <h2>Sample Output</h2>
-            <pre class="code-block">
+    <div class="section-divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <section class="project-section reveal">
+        <h2>How It Works</h2>
+        <p>
+            The scanner sends connection attempts to a range of IP addresses and ports. If a device responds,
+            it is marked as active. For each active device, the tool checks a list of common ports to identify
+            running services.
+        </p>
+        <p class="terminal-diagram">
+            [ User ] → [ Python Scanner ] → [ IP Range ] → [ Port Checks ] → [ Report ]
+        </p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SAMPLE OUTPUT -->
+    <section class="project-section reveal">
+        <h2>Sample Output</h2>
+        <pre class="code-block">
 Network Scan Report
 -------------------
 Active Device: 192.168.1.10
@@ -109,109 +95,30 @@ Active Device: 192.168.1.14
   Open Port: 3389 (RDP)
 
 Scan Complete: 4 devices found.
-            </pre>
-        </div>
+        </pre>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- CODE SNIPPET -->
-    <section class="project-section reveal">
-        <h2>Code Snippet</h2>
-        <pre class="code-block"><code>
-import socket
-import threading
-
-def scan_port(ip, port):
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimeout(0.3)
-    try:
-        s.connect((ip, port))
-        print(f"{ip}:{port} OPEN")
-    except:
-        pass
-    finally:
-        s.close()
-
-def scan_ip(ip):
-    print(f"Scanning {ip}...")
-    common_ports = [22, 80, 443, 3389]
-    for port in common_ports:
-        threading.Thread(target=scan_port, args=(ip, port)).start()
-
-if __name__ == "__main__":
-    base_ip = "192.168.1."
-    for i in range(1, 50):
-        scan_ip(base_ip + str(i))
-        </code></pre>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- CHALLENGES / LEARNINGS -->
-    <section class="project-section project-layout reveal">
-        <div>
-            <h2>Challenges & Solutions</h2>
-            <ul class="project-list">
-                <li><strong>Slow scanning:</strong> solved with multi-threading.</li>
-                <li><strong>Timeout issues:</strong> optimized socket timeout values.</li>
-                <li><strong>False positives:</strong> added retry logic for unstable hosts.</li>
-            </ul>
-        </div>
-
-        <div>
-            <h2>What I Learned</h2>
-            <ul class="project-list">
-                <li>How network devices respond to port probes.</li>
-                <li>How to use Python sockets effectively.</li>
-                <li>The importance of efficient threading in network tools.</li>
-            </ul>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- ACTIONS -->
-    <section class="project-section project-actions reveal">
-        <a href="https://github.com/EmileenNiyomugabo-GIF" target="_blank" class="project-btn">
-            View Code on GitHub
-        </a>
-        <a href="index.html" class="project-btn secondary">
-            ← Back to Portfolio
+    <!-- GITHUB BUTTON -->
+    <section class="project-section reveal" style="text-align:center;">
+        <a class="resume-btn"
+           href="https://github.com/emileenniyomugabo-gif/emileenniyomugabo-gif.github.io/blob/main/project-network-scanner.html"
+           target="_blank">
+           View Code on GitHub
         </a>
     </section>
 
-</main>
+    <div class="section-divider"></div>
 
-<footer class="footer">
-    <p>© 2026 Emileen Niyomugabo — Network Scanner Project</p>
-</footer>
+    <!-- BACK BUTTON -->
+    <section class="project-section reveal" style="text-align:center;">
+        <a href="index.html" class="resume-btn">← Back to Portfolio</a>
+    </section>
 
-<!-- CURSOR GLOW SCRIPT -->
-<script>
-document.addEventListener("mousemove", (e) => {
-    const glow = document.getElementById("cursorGlow");
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-});
-</script>
+    <div class="section-divider"></div>
 
-<!-- SCROLL REVEAL -->
-<script>
-const reveals = document.querySelectorAll('.reveal');
-
-function revealOnScroll() {
-    for (let r of reveals) {
-        const rect = r.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-            r.classList.add('visible');
-        }
-    }
-}
-
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-</script>
+</div>
 
 </body>
 </html>
