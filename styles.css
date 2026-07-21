@@ -203,30 +203,6 @@ body {
 }
 
 /* ------------------------------
-   TIC TAC TOE COMPACT LAYOUT
------------------------------- */
-.tic-section {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.tic-grid {
-    margin: 0 auto !important;
-    padding: 0 !important;
-}
-
-#status {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-#reset {
-    margin: 4px auto !important;
-    padding: 6px 12px !important;
-}
-
-
-/* ------------------------------
    CONTACT SECTION
 ------------------------------ */
 .contact-section {
@@ -269,27 +245,38 @@ body {
     transform: translateY(0);
 }
 
-/* OVERRIDE PROJECT SECTION FOR TIC TAC TOE */
-.tic-section.project-section {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-/* REMOVE CONTAINER SPACING FOR TIC TAC TOE */
-.tic-section .container,
+/* FINAL TIGHT TIC TAC TOE LAYOUT */
 .tic-section {
     margin: 0 !important;
     padding: 0 !important;
+    text-align: center;
 }
-/* SHRINK BOARD SPACING */
-.tic-grid {
+
+.tic-section h2 {
     margin: 0 !important;
     padding: 0 !important;
-    border-width: 2px !important;
+}
+
+.tic-grid {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: 3px solid black !important;
 }
 
 .tic-cell {
-    width: 80px !important;
-    height: 80px !important;
+    width: 90px !important;
+    height: 90px !important;
     font-size: 40px !important;
+    border: 2px solid black !important;
+}
+
+#status {
+    margin: 2px 0 !important;
+    padding: 0 !important;
+}
+
+#reset {
+    margin: 4px auto !important;
+    padding: 6px 12px !important;
 }
 
