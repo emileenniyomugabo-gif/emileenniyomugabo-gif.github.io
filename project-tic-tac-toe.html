@@ -6,20 +6,27 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
+        /* TIGHT GAME BOARD */
+        .tic-section {
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: center;
+        }
+
         .tic-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 0;
             border: 3px solid black;
-            margin: 0 auto;
+            margin: 0 auto !important;
         }
 
         .tic-cell {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             background: white;
             border: 2px solid black;
-            font-size: 48px;
+            font-size: 40px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -27,37 +34,22 @@
             cursor: pointer;
         }
 
-        .tic-cell.x { color: #3A7ABF; }
-        .tic-cell.o { color: #D9534F; }
-
         #status {
-            font-size: 22px;
+            margin: 2px 0 !important;
+            font-size: 20px;
             font-weight: bold;
             color: #1f4e79;
-            margin: 5px 0;
         }
 
         #reset {
-            margin: 8px auto;
-            padding: 8px 16px;
+            margin: 4px auto !important;
+            padding: 6px 12px;
             background: #3A7ABF;
             color: white;
             border-radius: 8px;
             font-size: 16px;
             display: inline-block;
             cursor: pointer;
-            transition: 0.2s;
-        }
-
-        #reset:hover {
-            background: #2F5F91;
-        }
-
-        /* Tighten the entire Tic Tac Toe section */
-        .tic-section {
-            margin: 0 !important;
-            padding: 0 !important;
-            text-align: center;
         }
     </style>
 </head>
@@ -65,9 +57,9 @@
 <body>
 
 <!-- PLAYABLE GAME (TIGHT + CLEAN) -->
-<section class="project-section reveal tic-section">
+<section class="tic-section">
 
-    <h2>Play the Game</h2>
+    <h2 style="margin: 0 !important;">Play the Game</h2>
 
     <div id="status">Player X's turn</div>
 
@@ -105,13 +97,8 @@
     <!-- OVERVIEW -->
     <section class="project-section reveal">
         <h2>Overview</h2>
-        <p>
-            This Tic Tac Toe game is a clean, interactive two-player experience built with HTML, CSS, and JavaScript.
-            It detects wins, draws, and allows instant board resets. The design is simple, responsive, and easy to play.
-        </p>
-        <p>
-            This project demonstrates DOM manipulation, game logic, event handling, and UI design fundamentals.
-        </p>
+        <p>This Tic Tac Toe game is a clean, interactive two-player experience built with HTML, CSS, and JavaScript.</p>
+        <p>It demonstrates DOM manipulation, game logic, event handling, and UI design fundamentals.</p>
     </section>
 
     <div class="section-divider"></div>
@@ -123,7 +110,7 @@
             <li>Two-player game logic</li>
             <li>Win and draw detection</li>
             <li>Instant reset button</li>
-            <li>Clean, readable board layout</li>
+            <li>Clean board layout</li>
             <li>Color-coded X and O markers</li>
         </ul>
     </section>
