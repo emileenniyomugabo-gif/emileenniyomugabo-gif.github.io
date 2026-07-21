@@ -10,9 +10,10 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 0;
-            margin-top: 20px;
             border: 3px solid black;
+            margin: 0 auto;
         }
+
         .tic-cell {
             width: 100px;
             height: 100px;
@@ -25,20 +26,20 @@
             justify-content: center;
             cursor: pointer;
         }
+
         .tic-cell.x { color: #3A7ABF; }
         .tic-cell.o { color: #D9534F; }
 
         #status {
-            margin-top: 15px;
             font-size: 22px;
             font-weight: bold;
             color: #1f4e79;
-            text-align: center;
+            margin: 5px 0;
         }
 
         #reset {
-            margin-top: 20px;
-            padding: 10px 20px;
+            margin: 8px auto;
+            padding: 8px 16px;
             background: #3A7ABF;
             color: white;
             border-radius: 8px;
@@ -51,11 +52,43 @@
         #reset:hover {
             background: #2F5F91;
         }
+
+        /* Tighten the entire Tic Tac Toe section */
+        .tic-section {
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
 
+<!-- PLAYABLE GAME (TIGHT + CLEAN) -->
+<section class="project-section reveal tic-section">
+
+    <h2>Play the Game</h2>
+
+    <div id="status">Player X's turn</div>
+
+    <div class="tic-grid" id="board">
+        <div class="tic-cell" data-index="0"></div>
+        <div class="tic-cell" data-index="1"></div>
+        <div class="tic-cell" data-index="2"></div>
+        <div class="tic-cell" data-index="3"></div>
+        <div class="tic-cell" data-index="4"></div>
+        <div class="tic-cell" data-index="5"></div>
+        <div class="tic-cell" data-index="6"></div>
+        <div class="tic-cell" data-index="7"></div>
+        <div class="tic-cell" data-index="8"></div>
+    </div>
+
+    <div id="reset">Reset Game</div>
+
+</section>
+
+
+<!-- EVERYTHING ELSE BELOW -->
 <div class="container">
 
     <div class="section-divider"></div>
@@ -65,29 +98,6 @@
         <img src="images/tic-tac-toe.svg" 
              alt="Tic Tac Toe Game" 
              style="max-width:500px; border-radius:12px; box-shadow:0 0 25px rgba(58,122,191,0.4);">
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- PLAYABLE GAME -->
-    <section class="project-section reveal" style="text-align:center;">
-        <h2>Play the Game</h2>
-
-        <div id="status">Player X's turn</div>
-
-        <div class="tic-grid" id="board">
-            <div class="tic-cell" data-index="0"></div>
-            <div class="tic-cell" data-index="1"></div>
-            <div class="tic-cell" data-index="2"></div>
-            <div class="tic-cell" data-index="3"></div>
-            <div class="tic-cell" data-index="4"></div>
-            <div class="tic-cell" data-index="5"></div>
-            <div class="tic-cell" data-index="6"></div>
-            <div class="tic-cell" data-index="7"></div>
-            <div class="tic-cell" data-index="8"></div>
-        </div>
-
-        <div id="reset">Reset Game</div>
     </section>
 
     <div class="section-divider"></div>
@@ -151,6 +161,7 @@
     <div class="section-divider"></div>
 
 </div>
+
 
 <script>
     const board = document.querySelectorAll('.tic-cell');
