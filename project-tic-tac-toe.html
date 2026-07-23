@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        /* SUPER TIGHT GAME BOARD */
+        /* SUPER CLEAN + CENTERED + EVEN SQUARES */
         .tic-section {
             margin: 0;
             padding: 0;
@@ -20,7 +20,7 @@
 
         .tic-grid {
             display: grid;
-            grid-template-columns: repeat(3, 60px); /* EVEN TIGHTER */
+            grid-template-columns: repeat(3, 80px); /* EVEN SQUARES */
             justify-content: center; /* CENTER GRID */
             gap: 0;
             border: 3px solid black;
@@ -28,11 +28,11 @@
         }
 
         .tic-cell {
-            width: 60px;   /* EVEN TIGHTER */
-            height: 60px;  /* EVEN TIGHTER */
+            width: 80px;   /* BIGGER + EVEN */
+            height: 80px;  /* BIGGER + EVEN */
             background: white;
             border: 2px solid black;
-            font-size: 28px; /* smaller text */
+            font-size: 36px; /* proportional */
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -41,15 +41,15 @@
         }
 
         #status {
-            margin: 6px 0;
-            font-size: 18px;
+            margin: 8px 0;
+            font-size: 20px;
             font-weight: bold;
             color: #1f4e79;
         }
 
         #reset {
-            margin: 8px auto;
-            padding: 6px 12px;
+            margin: 10px auto;
+            padding: 8px 14px;
             background: #3A7ABF;
             color: white;
             border-radius: 8px;
@@ -80,7 +80,7 @@
 
 <body>
 
-<!-- PLAYABLE GAME (SUPER TIGHT + CENTERED) -->
+<!-- PLAYABLE GAME (CENTERED + EVEN + CLEAN) -->
 <section class="tic-section">
 
     <h2>Play the Game</h2>
@@ -238,3 +238,4 @@
 
 </body>
 </html>
+
