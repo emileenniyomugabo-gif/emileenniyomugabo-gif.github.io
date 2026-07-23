@@ -279,4 +279,8 @@ body {
     margin: 4px auto !important;
     padding: 6px 12px !important;
 }
+body.project-tic-tac-toe .container {
+    margin: 0 !important;
+}
+
 
