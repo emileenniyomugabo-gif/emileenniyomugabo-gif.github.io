@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        /* SUPER CLEAN + CENTERED + EVEN SQUARES */
+        /* CLEAN + CENTERED + BIGGER SQUARES + NO OUTER BORDER */
         .tic-section {
             margin: 0;
             padding: 0;
@@ -20,19 +20,19 @@
 
         .tic-grid {
             display: grid;
-            grid-template-columns: repeat(3, 80px); /* EVEN SQUARES */
+            grid-template-columns: repeat(3, 90px); /* BIGGER SQUARES */
             justify-content: center; /* CENTER GRID */
             gap: 0;
-            border: 3px solid black;
             margin: 0 auto;
+            border: none; /* REMOVE OUTER BORDER */
         }
 
         .tic-cell {
-            width: 80px;   /* BIGGER + EVEN */
-            height: 80px;  /* BIGGER + EVEN */
+            width: 90px;   /* BIGGER */
+            height: 90px;  /* BIGGER */
             background: white;
-            border: 2px solid black;
-            font-size: 36px; /* proportional */
+            border: 2px solid black; /* KEEP INNER LINES ONLY */
+            font-size: 48px; /* proportional */
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -41,19 +41,19 @@
         }
 
         #status {
-            margin: 8px 0;
-            font-size: 20px;
+            margin: 10px 0;
+            font-size: 22px;
             font-weight: bold;
             color: #1f4e79;
         }
 
         #reset {
-            margin: 10px auto;
-            padding: 8px 14px;
+            margin: 12px auto;
+            padding: 8px 16px;
             background: #3A7ABF;
             color: white;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 18px;
             display: inline-block;
             cursor: pointer;
         }
@@ -80,7 +80,7 @@
 
 <body>
 
-<!-- PLAYABLE GAME (CENTERED + EVEN + CLEAN) -->
+<!-- PLAYABLE GAME (BIG + CENTERED + NO BORDER) -->
 <section class="tic-section">
 
     <h2>Play the Game</h2>
@@ -238,4 +238,3 @@
 
 </body>
 </html>
-
