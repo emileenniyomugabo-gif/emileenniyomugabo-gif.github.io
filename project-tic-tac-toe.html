@@ -57,18 +57,24 @@
             cursor: pointer;
         }
 
-        /* REMOVE EXTRA SPACING BELOW GAME */
+        /* FIX SPACING + CENTER ALL SECTIONS */
         .container {
             margin: 20px auto !important; /* was 80px */
+            padding: 0 20px;
+            text-align: center; /* FIX LEFT ALIGNMENT */
         }
 
         .section-divider {
             margin: 20px auto !important; /* was 50px */
         }
+
+        .project-section {
+            text-align: center; /* restore centering */
+        }
     </style>
 </head>
 
-<body class="project-tic-tac-toe">
+<body>
 
 <!-- PLAYABLE GAME (TIGHT + CLEAN) -->
 <section class="tic-section">
@@ -100,7 +106,7 @@
     <div class="section-divider"></div>
 
     <!-- HERO IMAGE -->
-    <section class="reveal" style="text-align:center;">
+    <section class="project-section reveal">
         <img src="images/tic-tac-toe.svg" 
              alt="Tic Tac Toe Game" 
              style="max-width:500px; border-radius:12px; box-shadow:0 0 25px rgba(58,122,191,0.4);">
@@ -109,7 +115,7 @@
     <div class="section-divider"></div>
 
     <!-- OVERVIEW -->
-    <section class="reveal">
+    <section class="project-section reveal">
         <h2>Overview</h2>
         <p>This Tic Tac Toe game is a clean, interactive two-player experience built with HTML, CSS, and JavaScript.</p>
         <p>It demonstrates DOM manipulation, game logic, event handling, and UI design fundamentals.</p>
@@ -118,7 +124,7 @@
     <div class="section-divider"></div>
 
     <!-- FEATURES -->
-    <section class="reveal">
+    <section class="project-section reveal">
         <h2>Features</h2>
         <ul>
             <li>Two-player game logic</li>
@@ -132,7 +138,7 @@
     <div class="section-divider"></div>
 
     <!-- TECHNOLOGIES -->
-    <section class="reveal">
+    <section class="project-section reveal">
         <h2>Technologies Used</h2>
         <ul>
             <li>HTML</li>
@@ -144,7 +150,7 @@
     <div class="section-divider"></div>
 
     <!-- GITHUB BUTTON -->
-    <section class="reveal" style="text-align:center;">
+    <section class="project-section reveal">
         <a class="resume-btn"
            href="https://github.com/emileenniyomugabo-gif/emileenniyomugabo-gif.github.io/blob/main/project-tic-tac-toe.html"
            target="_blank">
@@ -155,7 +161,7 @@
     <div class="section-divider"></div>
 
     <!-- BACK BUTTON -->
-    <section class="reveal" style="text-align:center;">
+    <section class="project-section reveal">
         <a href="index.html" class="resume-btn">← Back to Portfolio</a>
     </section>
 
