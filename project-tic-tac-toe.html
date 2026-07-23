@@ -8,30 +8,30 @@
     <style>
         /* TIGHT GAME BOARD */
         .tic-section {
-            margin: 0 !important;
-            padding: 0 !important;
+            margin: 0;
+            padding: 0;
             text-align: center;
         }
 
         .tic-section h2 {
-            margin: 0 !important;
-            padding: 0 !important;
+            margin: 0;
+            padding: 0;
         }
 
         .tic-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 70px); /* FIXED WIDTH */
             gap: 0;
             border: 3px solid black;
-            margin: 0 auto !important;
+            margin: 0 auto;
         }
 
         .tic-cell {
-            width: 90px;
-            height: 90px;
+            width: 70px;
+            height: 70px;
             background: white;
             border: 2px solid black;
-            font-size: 40px;
+            font-size: 32px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -40,14 +40,14 @@
         }
 
         #status {
-            margin: 2px 0 !important;
-            font-size: 20px;
+            margin: 6px 0;
+            font-size: 18px;
             font-weight: bold;
             color: #1f4e79;
         }
 
         #reset {
-            margin: 4px auto !important;
+            margin: 8px auto;
             padding: 6px 12px;
             background: #3A7ABF;
             color: white;
@@ -59,17 +59,20 @@
 
         /* FIX SPACING + CENTER ALL SECTIONS */
         .container {
-            margin: 20px auto !important; /* was 80px */
+            max-width: 900px;
+            margin: 20px auto; /* FIXED */
             padding: 0 20px;
             text-align: center; /* FIX LEFT ALIGNMENT */
         }
 
         .section-divider {
-            margin: 20px auto !important; /* was 50px */
+            width: 80%;
+            height: 3px;
+            margin: 25px auto; /* FIXED */
         }
 
         .project-section {
-            text-align: center; /* restore centering */
+            text-align: center;
         }
     </style>
 </head>
